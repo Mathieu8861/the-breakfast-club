@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Breakfast Club - A fitness and nutrition centre in Uccle, Brussels. More than just a smoothie bar.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Breakfast Club - Become the best version of yourself">
+    <meta property="og:description" content="A fitness and nutrition centre. Detox teas, protein smoothies, daily coaching & community.">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+
+    <title>The Breakfast Club - Fitness & Nutrition Centre</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-green.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Demo Switcher Bar -->
+    <div class="demo-bar">
+        <span class="demo-bar__label">REGEN AGENCY</span>
+        <div class="demo-bar__links">
+            <a href="index.html" class="demo-bar__link demo-bar__link--active">Demo 1</a>
+            <a href="demo2.html" class="demo-bar__link">Demo 2</a>
+            <a href="demo3.html" class="demo-bar__link">Demo 3</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <nav class="nav">
+                <a href="#" class="nav__logo">
+                    <img src="assets/logo-black.png" alt="The Breakfast Club">
+                </a>
+
+                <ul class="nav__menu" id="nav-menu">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#concept" class="nav__link">Concept</a></li>
+                    <li><a href="#services" class="nav__link">What We Offer</a></li>
+                    <li><a href="#results" class="nav__link">Results</a></li>
+                    <li><a href="#pricing" class="nav__link">Pricing</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+
+                <a href="#pricing" class="btn btn--cta nav__cta">Start Now</a>
+
+                <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+
+        <!-- ==================== HERO ==================== -->
+        <section class="hero" id="home">
+            <div class="hero__overlay"></div>
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="" type="video/mp4">
+            </video>
+            <div class="hero__content">
+                <p class="hero__tag">Welcome to</p>
+                <h1 class="hero__title">THE BREAKFAST<br><span class="hero__title-accent">CLUB.</span></h1>
+                <p class="hero__subtitle">Become the best version of yourself</p>
+                <p class="hero__desc">A fitness and nutrition centre, much more than just a morning smoothie.</p>
+                <div class="hero__actions">
+                    <a href="#concept" class="btn btn--primary">Discover the Concept</a>
+                    <a href="#contact" class="btn btn--outline">Visit the Club</a>
+                </div>
+            </div>
+            <div class="hero__scroll">
+                <span>Scroll</span>
+                <div class="hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ==================== CONCEPT ==================== -->
+        <section class="section section--concept" id="concept">
+            <div class="container">
+                <div class="concept">
+                    <div class="concept__text">
+                        <p class="section__tag">The Concept</p>
+                        <h2 class="section__title">More than a<br><span class="text-accent">smoothie bar.</span></h2>
+                        <p class="concept__intro">This isn't just a place to grab a smoothie in the morning. It's a fitness and nutrition centre where we support you every day to help you reach your goals.</p>
+                    </div>
+                    <div class="concept__grid">
+                        <div class="concept__problem">
+                            <h3 class="concept__label">The Problem</h3>
+                            <ul class="concept__list">
+                                <li>Lack of energy</li>
+                                <li>Difficulty eating healthy</li>
+                                <li>Unstable motivation</li>
+                            </ul>
+                        </div>
+                        <div class="concept__solution">
+                            <h3 class="concept__label">Our Solution</h3>
+                            <p>We support you every day with adapted products, personalised follow-up, and a motivating community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SERVICES ==================== -->
+        <section class="section section--services" id="services">
+            <div class="container">
+                <p class="section__tag">What We Offer</p>
+                <h2 class="section__title">Everything you need<br><span class="text-accent">every morning.</span></h2>
+
+                <div class="services__grid">
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8h24v4c0 8.837-7.163 16-16 16h-4C11.582 28 8 24.418 8 20V8h4z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M36 12h4a4 4 0 014 4v0a4 4 0 01-4 4h-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M20 28v8M14 40h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M18 4v4M24 4v4M30 4v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Detox Tea</h3>
+                        <p class="service-card__desc">Start your morning with a purifying infusion to awaken and revitalise your body.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="16" width="24" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                                <path d="M18 16V10a6 6 0 1112 0v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="24" cy="30" r="3" fill="currentColor" opacity="0.5"/>
+                                <path d="M24 33v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Protein Smoothies</h3>
+                        <p class="service-card__desc">Delicious, balanced shakes packed with nutrients to fuel your entire morning.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 24h32M8 24c0-8.837 7.163-16 16-16s16 7.163 16 16M8 24l2 16h28l2-16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 18c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Nutrition Coaching</h3>
+                        <p class="service-card__desc">Personalised advice to help you build lasting, healthy eating habits.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 4v8M4 24h8M36 24h8M10.1 10.1l5.66 5.66M32.24 10.1l-5.66 5.66" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                                <circle cx="24" cy="28" r="12" stroke="currentColor" stroke-width="2.5"/>
+                                <path d="M24 22v8l4 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Daily Follow-up</h3>
+                        <p class="service-card__desc">We track your progress every morning and keep you on the path to your goals.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 44s16-8.4 16-20V10L24 4 8 10v14c0 11.6 16 20 16 20z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17 24l5 5 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Motivation & Community</h3>
+                        <p class="service-card__desc">You're never alone. Join a community that moves forward together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== RESULTS / BEFORE-AFTER ==================== -->
+        <section class="section section--results" id="results">
+            <div class="container">
+                <p class="section__tag">Transformations</p>
+                <h2 class="section__title">Real people,<br><span class="text-accent">real results.</span></h2>
+                <p class="section__subtitle">Our members' transformations speak for themselves. Consistency and support make all the difference.</p>
+
+                <div class="results__grid">
+                    <div class="result-card">
+                        <div class="result-card__images">
+                            <div class="result-card__before">
+                                <span class="result-card__label">Before</span>
+                                <div class="result-card__placeholder">Photo</div>
+                            </div>
+                            <div class="result-card__after">
+                                <span class="result-card__label">After</span>
+                                <div class="result-card__placeholder">Photo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-card__images">
+                            <div class="result-card__before">
+                                <span class="result-card__label">Before</span>
+                                <div class="result-card__placeholder">Photo</div>
+                            </div>
+                            <div class="result-card__after">
+                                <span class="result-card__label">After</span>
+                                <div class="result-card__placeholder">Photo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-card__images">
+                            <div class="result-card__before">
+                                <span class="result-card__label">Before</span>
+                                <div class="result-card__placeholder">Photo</div>
+                            </div>
+                            <div class="result-card__after">
+                                <span class="result-card__label">After</span>
+                                <div class="result-card__placeholder">Photo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TESTIMONIALS ==================== -->
+        <section class="section section--testimonials">
+            <div class="container">
+                <div class="testimonials__wrapper">
+                    <div class="testimonial">
+                        <p class="testimonial__text">"After 50 visits, the results are incredible. Weight loss, better body composition, and so much more energy every day."</p>
+                        <p class="testimonial__author">- Celine</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial__text">"The community is what keeps me coming back. You're never alone, and the coaches truly care about your progress."</p>
+                        <p class="testimonial__author">- Member</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial__text">"I replaced my morning coffee with their smoothie and I've never felt better. It's become my daily ritual."</p>
+                        <p class="testimonial__author">- Member</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PRICING ==================== -->
+        <section class="section section--pricing" id="pricing">
+            <div class="container">
+                <div class="pricing">
+                    <div class="pricing__text">
+                        <p class="section__tag">Get Started</p>
+                        <h2 class="section__title">Your 10-day<br><span class="text-accent">programme.</span></h2>
+                        <p class="pricing__desc">A simple solution to test, progress, and see real results.</p>
+                    </div>
+                    <div class="pricing__card">
+                        <div class="pricing__badge">Most Popular</div>
+                        <h3 class="pricing__plan">10 Breakfast Card</h3>
+                        <div class="pricing__price">
+                            <span class="pricing__amount">95</span>
+                            <span class="pricing__currency">&euro;</span>
+                        </div>
+                        <ul class="pricing__features">
+                            <li>10 complete breakfast sessions</li>
+                            <li>Detox tea + protein smoothie</li>
+                            <li>Daily coaching & follow-up</li>
+                            <li>Body composition analysis</li>
+                            <li>Access to the community</li>
+                        </ul>
+                        <a href="#contact" class="btn btn--primary btn--full">I'm Starting</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BOOKING ==================== -->
+        <section class="section section--booking">
+            <div class="container">
+                <div class="booking">
+                    <h2 class="section__title">Book your <span class="text-accent">slot.</span></h2>
+                    <p class="booking__desc">Every morning, we welcome up to 10 people per 1-hour session with a dedicated coach. Reserve your spot.</p>
+                    <div class="booking__slots">
+                        <div class="booking__slot">
+                            <span class="booking__time">7:00 - 8:00</span>
+                            <span class="booking__status">Available</span>
+                        </div>
+                        <div class="booking__slot">
+                            <span class="booking__time">8:00 - 9:00</span>
+                            <span class="booking__status">Available</span>
+                        </div>
+                        <div class="booking__slot">
+                            <span class="booking__time">9:00 - 10:00</span>
+                            <span class="booking__status">Available</span>
+                        </div>
+                        <div class="booking__slot">
+                            <span class="booking__time">10:00 - 11:00</span>
+                            <span class="booking__status">Available</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn--primary">Book via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section class="section section--contact" id="contact">
+            <div class="container">
+                <div class="contact">
+                    <div class="contact__info">
+                        <p class="section__tag">Come Visit</p>
+                        <h2 class="section__title">Find <span class="text-accent">us.</span></h2>
+                        <div class="contact__details">
+                            <div class="contact__item">
+                                <h4>Address</h4>
+                                <p>715 Chauss&eacute;e d'Alsemberg<br>1180 Uccle, Belgium</p>
+                            </div>
+                            <div class="contact__item">
+                                <h4>Hours</h4>
+                                <p>Every morning<br>7:00 AM &ndash; 11:00 AM</p>
+                            </div>
+                            <div class="contact__item">
+                                <h4>Get in Touch</h4>
+                                <div class="contact__socials">
+                                    <a href="https://www.instagram.com/the.break.fast.club/" target="_blank" rel="noopener" class="contact__social">Instagram</a>
+                                    <a href="https://www.facebook.com/profile.php?id=61581393804456" target="_blank" rel="noopener" class="contact__social">Facebook</a>
+                                    <a href="#" class="contact__social contact__social--whatsapp">WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact__map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.5!2d4.35!3d50.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDQ4JzAuMCJOIDTCsDIxJzAuMCJF!5e0!3m2!1sfr!2sbe!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="The Breakfast Club location"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <img src="assets/logo-white.png" alt="The Breakfast Club" class="footer__logo">
+                    <p class="footer__tagline">Become the best version of yourself.</p>
+                </div>
+                <div class="footer__links">
+                    <a href="#home">Home</a>
+                    <a href="#concept">Concept</a>
+                    <a href="#services">Services</a>
+                    <a href="#results">Results</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer__socials">
+                    <a href="https://www.instagram.com/the.break.fast.club/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61581393804456" target="_blank" rel="noopener">Facebook</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 The Breakfast Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
