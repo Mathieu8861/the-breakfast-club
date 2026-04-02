@@ -1,0 +1,384 @@
+/* ==========================================================================
+   DEMO 4 EXTRA — Text-heavy version
+   Additional styles for new sections (philosophy, how it works, community, FAQ)
+   Base styles come from style-demo3.css
+   ========================================================================== */
+
+/* ===========================
+   HERO STATS
+   =========================== */
+.hero__stats {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hero__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero__stat-number {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero__stat-label {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   PHILOSOPHY SECTION
+   =========================== */
+.section--philosophy {
+    background: var(--white);
+    position: relative;
+}
+
+/* Decorative: dot grid bridging philosophy → concept */
+.section--philosophy::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 60px;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(var(--green) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.philosophy {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.philosophy__text {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.philosophy__img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+/* ===========================
+   CONCEPT EXTRA (header desc + block desc)
+   =========================== */
+.concept__header-desc {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-top: 16px;
+    max-width: 700px;
+}
+
+.concept__block-desc {
+    font-size: 0.92rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* ===========================
+   HOW IT WORKS SECTION
+   =========================== */
+.section--howitworks {
+    background: var(--cream);
+    position: relative;
+}
+
+/* Decorative: orange circle bridging howitworks → services */
+.section--howitworks::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.section__subtitle--center {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section__subtitle--light {
+    color: var(--gray-400);
+    max-width: 700px;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.steps__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.step-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 36px 28px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: var(--transition-base);
+    border-top: 4px solid transparent;
+}
+
+.step-card:nth-child(1) { border-top-color: var(--orange); }
+.step-card:nth-child(2) { border-top-color: var(--pink); }
+.step-card:nth-child(3) { border-top-color: var(--green); }
+.step-card:nth-child(4) { border-top-color: var(--peach); }
+
+.step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-card__number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1;
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.25;
+    margin-bottom: 16px;
+}
+
+.step-card__title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.step-card__desc {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+/* ===========================
+   COMMUNITY SECTION
+   =========================== */
+.section--community {
+    background: var(--cream);
+    position: relative;
+}
+
+/* Decorative: pink circle bridging community → results */
+.section--community::after {
+    content: '';
+    position: absolute;
+    bottom: -45px;
+    left: 200px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--pink);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.community {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.community__img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.community__text {
+    font-size: 1.02rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-top: 14px;
+}
+
+/* ===========================
+   RESULTS EXTRA TEXT
+   =========================== */
+.results__text {
+    margin-top: 40px;
+    max-width: 800px;
+    font-size: 1.02rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    padding: 24px 32px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--green);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ===========================
+   CONTACT INTRO
+   =========================== */
+.contact__intro {
+    color: var(--gray-400);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* ===========================
+   FAQ SECTION
+   =========================== */
+.section--faq {
+    background: var(--white);
+    position: relative;
+}
+
+/* Decorative: gradient line left */
+.section--faq::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-cta);
+    border-radius: 2px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.faq__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item {
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 28px 32px;
+    transition: var(--transition-base);
+    border-left: 4px solid transparent;
+}
+
+.faq-item:nth-child(1) { border-left-color: var(--orange); }
+.faq-item:nth-child(2) { border-left-color: var(--pink); }
+.faq-item:nth-child(3) { border-left-color: var(--green); }
+.faq-item:nth-child(4) { border-left-color: var(--peach); }
+.faq-item:nth-child(5) { border-left-color: var(--yellow); }
+.faq-item:nth-child(6) { border-left-color: var(--orange); }
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.faq-item__question {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.faq-item__answer {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 1024px) {
+    .philosophy {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .philosophy__img {
+        height: 300px;
+    }
+
+    .steps__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .community {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .community__img {
+        height: 300px;
+    }
+
+    .faq__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__stats {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .hero__stat-number {
+        font-size: 1.3rem;
+    }
+
+    .steps__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy__img,
+    .community__img {
+        height: 240px;
+    }
+}

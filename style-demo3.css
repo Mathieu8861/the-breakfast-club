@@ -598,14 +598,13 @@ ul {
    =========================== */
 .section--concept {
     background: var(--white);
-    overflow: hidden;
 }
 
-/* Decorative: dot grid bottom-right */
+/* Decorative: dot grid bottom-right — stays inside section */
 .section--concept::before {
     content: '';
     position: absolute;
-    bottom: 60px;
+    bottom: 80px;
     right: 40px;
     width: 70px;
     height: 70px;
@@ -613,20 +612,22 @@ ul {
     background-size: 10px 10px;
     opacity: 0.2;
     pointer-events: none;
+    z-index: 1;
 }
 
-/* Decorative: soft circle top-right */
+/* Decorative: peach circle bridging concept → services */
 .section--concept::after {
     content: '';
     position: absolute;
-    top: -30px;
-    right: 80px;
+    bottom: -60px;
+    right: 120px;
     width: 120px;
     height: 120px;
     border-radius: 50%;
     background: var(--peach);
-    opacity: 0.15;
+    opacity: 0.18;
     pointer-events: none;
+    z-index: 2;
 }
 
 .concept__header {
@@ -889,10 +890,9 @@ ul {
    =========================== */
 .section--results {
     background: var(--cream);
-    overflow: hidden;
 }
 
-/* Decorative: thin gradient line left */
+/* Decorative: thin gradient line left — stays inside */
 .section--results::before {
     content: '';
     position: absolute;
@@ -904,20 +904,22 @@ ul {
     border-radius: 2px;
     opacity: 0.4;
     pointer-events: none;
+    z-index: 1;
 }
 
-/* Decorative: small green circle bottom-left */
+/* Decorative: green circle bridging results → testimonials */
 .section--results::after {
     content: '';
     position: absolute;
-    bottom: 40px;
-    left: 60px;
-    width: 80px;
-    height: 80px;
+    bottom: -50px;
+    left: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: var(--green);
-    opacity: 0.1;
+    opacity: 0.12;
     pointer-events: none;
+    z-index: 2;
 }
 
 .results__grid {
@@ -1003,14 +1005,13 @@ ul {
    =========================== */
 .section--testimonials {
     background: var(--white);
-    overflow: hidden;
 }
 
-/* Decorative: dot grid top-left */
+/* Decorative: dot grid — stays inside */
 .section--testimonials::before {
     content: '';
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 30px;
     width: 60px;
     height: 60px;
@@ -1018,20 +1019,22 @@ ul {
     background-size: 10px 10px;
     opacity: 0.2;
     pointer-events: none;
+    z-index: 1;
 }
 
-/* Decorative: yellow circle bottom-right */
+/* Decorative: yellow circle bridging testimonials → pricing */
 .section--testimonials::after {
     content: '';
     position: absolute;
-    bottom: -20px;
-    right: 100px;
-    width: 100px;
-    height: 100px;
+    bottom: -55px;
+    right: 140px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     background: var(--yellow);
-    opacity: 0.25;
+    opacity: 0.3;
     pointer-events: none;
+    z-index: 2;
 }
 
 .testimonials__grid {
@@ -1118,10 +1121,9 @@ ul {
    =========================== */
 .section--pricing {
     background: var(--cream);
-    overflow: hidden;
 }
 
-/* Decorative: thin gradient line left */
+/* Decorative: warm gradient line — stays inside */
 .section--pricing::before {
     content: '';
     position: absolute;
@@ -1133,6 +1135,7 @@ ul {
     border-radius: 2px;
     opacity: 0.3;
     pointer-events: none;
+    z-index: 1;
 }
 
 .pricing {
@@ -1257,10 +1260,9 @@ ul {
    =========================== */
 .section--booking {
     background: var(--white);
-    overflow: hidden;
 }
 
-/* Decorative: gradient line right */
+/* Decorative: gradient line right — stays inside */
 .section--booking::before {
     content: '';
     position: absolute;
@@ -1272,6 +1274,7 @@ ul {
     border-radius: 2px;
     opacity: 0.3;
     pointer-events: none;
+    z-index: 1;
 }
 
 .booking {
