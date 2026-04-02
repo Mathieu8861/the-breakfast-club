@@ -537,6 +537,21 @@ ul {
     justify-content: center;
 }
 
+/* Decorative: large dot grid behind hero image */
+.hero__right::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -40px;
+    width: 260px;
+    height: 320px;
+    background-image: radial-gradient(var(--pink) 1.8px, transparent 1.8px);
+    background-size: 14px 14px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
+
 .hero__img-wrapper {
     position: relative;
     border-radius: var(--radius-lg);
@@ -583,6 +598,35 @@ ul {
    =========================== */
 .section--concept {
     background: var(--white);
+    overflow: hidden;
+}
+
+/* Decorative: dot grid bottom-right */
+.section--concept::before {
+    content: '';
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    background-image: radial-gradient(var(--orange) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Decorative: soft circle top-right */
+.section--concept::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--peach);
+    opacity: 0.15;
+    pointer-events: none;
 }
 
 .concept__header {
@@ -845,6 +889,35 @@ ul {
    =========================== */
 .section--results {
     background: var(--cream);
+    overflow: hidden;
+}
+
+/* Decorative: thin gradient line left */
+.section--results::before {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: var(--gradient-cta);
+    border-radius: 2px;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Decorative: small green circle bottom-left */
+.section--results::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--green);
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 .results__grid {
@@ -930,6 +1003,35 @@ ul {
    =========================== */
 .section--testimonials {
     background: var(--white);
+    overflow: hidden;
+}
+
+/* Decorative: dot grid top-left */
+.section--testimonials::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(var(--green) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Decorative: yellow circle bottom-right */
+.section--testimonials::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--yellow);
+    opacity: 0.25;
+    pointer-events: none;
 }
 
 .testimonials__grid {
@@ -1016,6 +1118,21 @@ ul {
    =========================== */
 .section--pricing {
     background: var(--cream);
+    overflow: hidden;
+}
+
+/* Decorative: thin gradient line left */
+.section--pricing::before {
+    content: '';
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 90px;
+    height: 3px;
+    background: var(--gradient-warm);
+    border-radius: 2px;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .pricing {
@@ -1140,6 +1257,21 @@ ul {
    =========================== */
 .section--booking {
     background: var(--white);
+    overflow: hidden;
+}
+
+/* Decorative: gradient line right */
+.section--booking::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-warm);
+    border-radius: 2px;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .booking {
