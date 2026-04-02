@@ -730,6 +730,18 @@ button {
     border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid var(--color-gray-light);
+    transition: var(--transition-smooth);
+}
+
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.result-card__img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .result-card__images {

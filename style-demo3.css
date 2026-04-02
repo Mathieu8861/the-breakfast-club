@@ -545,7 +545,8 @@ ul {
     max-width: 520px;
 }
 
-.hero__img {
+.hero__img,
+.hero__video {
     width: 100%;
     height: 580px;
     object-fit: cover;
@@ -553,7 +554,8 @@ ul {
     transition: var(--transition-slow);
 }
 
-.hero__img-wrapper:hover .hero__img {
+.hero__img-wrapper:hover .hero__img,
+.hero__img-wrapper:hover .hero__video {
     transform: scale(1.03);
 }
 
@@ -865,6 +867,12 @@ ul {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     border-color: var(--orange);
+}
+
+.result-card__img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .result-card__images {

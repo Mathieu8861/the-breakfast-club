@@ -856,6 +856,13 @@ button {
     box-shadow: var(--shadow-md);
 }
 
+.result-card__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-lg);
+}
+
 .result-card__images {
     display: grid;
     grid-template-columns: 1fr 1fr;
