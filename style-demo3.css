@@ -330,7 +330,7 @@ ul {
 }
 
 .nav__logo img {
-    height: 48px;
+    height: 72px;
     width: auto;
     transition: var(--transition-base);
 }

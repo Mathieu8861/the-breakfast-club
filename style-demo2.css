@@ -301,7 +301,7 @@ button {
 }
 
 .nav__logo img {
-    height: 44px;
+    height: 72px;
     width: auto;
     transition: var(--transition-normal);
 }
