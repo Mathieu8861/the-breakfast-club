@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-demo2.css">
 </head>
 <body>
 
@@ -30,8 +30,8 @@
     <div class="demo-bar">
         <span class="demo-bar__label">REGEN AGENCY</span>
         <div class="demo-bar__links">
-            <a href="index.html" class="demo-bar__link demo-bar__link--active">Demo 1</a>
-            <a href="demo2.html" class="demo-bar__link">Demo 2</a>
+            <a href="index.html" class="demo-bar__link">Demo 1</a>
+            <a href="demo2.html" class="demo-bar__link demo-bar__link--active">Demo 2</a>
             <a href="demo3.html" class="demo-bar__link">Demo 3</a>
         </div>
     </div>
@@ -41,7 +41,7 @@
         <div class="header__inner">
             <nav class="nav">
                 <a href="#" class="nav__logo">
-                    <img src="assets/logo-black.png" alt="The Breakfast Club">
+                    <img src="assets/logo-green.png" alt="The Breakfast Club">
                 </a>
 
                 <ul class="nav__menu" id="nav-menu">
@@ -69,16 +69,21 @@
 
         <!-- ==================== HERO ==================== -->
         <section class="hero" id="home">
-            <div class="hero__overlay"></div>
-            <img class="hero__bg" src="assets/images/IMG_59471.jpg" alt="Smoothie devant la vitrine The Breakfast Club">
+            <div class="hero__blob hero__blob--1"></div>
+            <div class="hero__blob hero__blob--2"></div>
             <div class="hero__content">
-                <p class="hero__tag">Welcome to</p>
-                <h1 class="hero__title">THE BREAKFAST<br><span class="hero__title-accent">CLUB.</span></h1>
-                <p class="hero__subtitle">Deviens la meilleure version de toi-m&ecirc;me</p>
-                <p class="hero__desc">Un centre de remise en forme et de nutrition, bien plus qu'un simple smoothie du matin.</p>
-                <div class="hero__actions">
-                    <a href="#concept" class="btn btn--primary">D&eacute;couvrir le concept</a>
-                    <a href="#contact" class="btn btn--outline">Venir au club</a>
+                <div class="hero__text">
+                    <p class="hero__tag">Welcome to</p>
+                    <h1 class="hero__title">THE BREAKFAST<br><span class="hero__title-accent">CLUB.</span></h1>
+                    <p class="hero__subtitle">Deviens la meilleure version de toi-m&ecirc;me</p>
+                    <p class="hero__desc">Un centre de remise en forme et de nutrition, bien plus qu'un simple smoothie du matin.</p>
+                    <div class="hero__actions">
+                        <a href="#concept" class="btn btn--primary">D&eacute;couvrir le concept</a>
+                        <a href="#contact" class="btn btn--outline">Venir au club</a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <img src="assets/images/IMG_3015.jpg" alt="Matin&eacute;e communautaire au Breakfast Club">
                 </div>
             </div>
             <div class="hero__scroll">
@@ -193,13 +198,15 @@
 
         <!-- ==================== GALLERY ==================== -->
         <section class="section section--gallery">
-            <div class="gallery">
-                <div class="gallery__item"><img src="assets/images/IMG_29871.jpg" alt="Smoothie bowl aux fruits rouges" loading="lazy"></div>
-                <div class="gallery__item"><img src="assets/images/IMG_59471.jpg" alt="Smoothie devant The Breakfast Club" loading="lazy"></div>
-                <div class="gallery__item"><img src="assets/images/IMG_5992.jpg" alt="Ingr&eacute;dients frais et smoothies" loading="lazy"></div>
-                <div class="gallery__item"><img src="assets/images/IMG_3015.jpg" alt="Matin&eacute;e communautaire au club" loading="lazy"></div>
-                <div class="gallery__item"><img src="assets/images/IMG_29911.jpg" alt="Pimp your smoothie" loading="lazy"></div>
-                <div class="gallery__item"><img src="assets/images/IMG_6006.jpg" alt="Smoothie vert" loading="lazy"></div>
+            <div class="container">
+                <div class="gallery">
+                    <div class="gallery__item"><img src="assets/images/IMG_29871.jpg" alt="Smoothie bowl aux fruits rouges" loading="lazy"></div>
+                    <div class="gallery__item"><img src="assets/images/IMG_59471.jpg" alt="Smoothie devant The Breakfast Club" loading="lazy"></div>
+                    <div class="gallery__item"><img src="assets/images/IMG_5992.jpg" alt="Ingr&eacute;dients frais et smoothies" loading="lazy"></div>
+                    <div class="gallery__item"><img src="assets/images/IMG_3015.jpg" alt="Matin&eacute;e communautaire au club" loading="lazy"></div>
+                    <div class="gallery__item"><img src="assets/images/IMG_29911.jpg" alt="Pimp your smoothie" loading="lazy"></div>
+                    <div class="gallery__item"><img src="assets/images/IMG_6006.jpg" alt="Smoothie vert" loading="lazy"></div>
+                </div>
             </div>
         </section>
 

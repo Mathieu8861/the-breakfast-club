@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-demo3.css">
 </head>
 <body>
 
@@ -30,9 +30,9 @@
     <div class="demo-bar">
         <span class="demo-bar__label">REGEN AGENCY</span>
         <div class="demo-bar__links">
-            <a href="index.html" class="demo-bar__link demo-bar__link--active">Demo 1</a>
+            <a href="index.html" class="demo-bar__link">Demo 1</a>
             <a href="demo2.html" class="demo-bar__link">Demo 2</a>
-            <a href="demo3.html" class="demo-bar__link">Demo 3</a>
+            <a href="demo3.html" class="demo-bar__link demo-bar__link--active">Demo 3</a>
         </div>
     </div>
 
@@ -41,7 +41,8 @@
         <div class="header__inner">
             <nav class="nav">
                 <a href="#" class="nav__logo">
-                    <img src="assets/logo-black.png" alt="The Breakfast Club">
+                    <img src="assets/logo-black.png" alt="The Breakfast Club" class="nav__logo-dark">
+                    <img src="assets/logo-white.png" alt="The Breakfast Club" class="nav__logo-light">
                 </a>
 
                 <ul class="nav__menu" id="nav-menu">
@@ -53,7 +54,7 @@
                     <li><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
 
-                <a href="#pricing" class="btn btn--cta nav__cta">Je commence</a>
+                <a href="#pricing" class="btn btn--gradient nav__cta">Je commence</a>
 
                 <button class="nav__toggle" id="nav-toggle" aria-label="Menu">
                     <span></span>
@@ -69,21 +70,27 @@
 
         <!-- ==================== HERO ==================== -->
         <section class="hero" id="home">
-            <div class="hero__overlay"></div>
-            <img class="hero__bg" src="assets/images/IMG_59471.jpg" alt="Smoothie devant la vitrine The Breakfast Club">
-            <div class="hero__content">
-                <p class="hero__tag">Welcome to</p>
-                <h1 class="hero__title">THE BREAKFAST<br><span class="hero__title-accent">CLUB.</span></h1>
-                <p class="hero__subtitle">Deviens la meilleure version de toi-m&ecirc;me</p>
-                <p class="hero__desc">Un centre de remise en forme et de nutrition, bien plus qu'un simple smoothie du matin.</p>
-                <div class="hero__actions">
-                    <a href="#concept" class="btn btn--primary">D&eacute;couvrir le concept</a>
-                    <a href="#contact" class="btn btn--outline">Venir au club</a>
+            <div class="hero__split">
+                <div class="hero__left">
+                    <div class="hero__shapes">
+                        <div class="hero__shape hero__shape--circle"></div>
+                        <div class="hero__shape hero__shape--dots"></div>
+                    </div>
+                    <span class="hero__badge">Welcome to</span>
+                    <h1 class="hero__title">THE<br>BREAKFAST<br><span class="hero__title-accent">CLUB.</span></h1>
+                    <p class="hero__subtitle">Deviens la meilleure version de toi-m&ecirc;me</p>
+                    <p class="hero__desc">Un centre de remise en forme et de nutrition, bien plus qu'un simple smoothie du matin.</p>
+                    <div class="hero__actions">
+                        <a href="#concept" class="btn btn--gradient">D&eacute;couvrir le concept</a>
+                        <a href="#contact" class="btn btn--outline-dark">Venir au club</a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero__scroll">
-                <span>Scroll</span>
-                <div class="hero__scroll-line"></div>
+                <div class="hero__right">
+                    <div class="hero__img-wrapper">
+                        <img src="assets/images/IMG_5991.jpg" alt="Nos smoothies color&eacute;s" class="hero__img">
+                        <div class="hero__img-accent"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -91,30 +98,39 @@
         <section class="section section--concept" id="concept">
             <div class="container">
                 <div class="concept">
-                    <div class="concept__text">
-                        <p class="section__tag">The Concept</p>
-                        <h2 class="section__title">Bien plus qu'un<br><span class="text-accent">smoothie bar.</span></h2>
-                        <p class="concept__intro">Ici, ce n'est pas seulement un endroit o&ugrave; boire un smoothie le matin. C'est un centre de remise en forme et de nutrition, o&ugrave; l'on t'accompagne chaque jour pour t'aider &agrave; atteindre tes objectifs.</p>
-                        <div class="concept__images">
-                            <img src="assets/images/IMG_5991.jpg" alt="Nos smoothies prot&eacute;in&eacute;s color&eacute;s" class="concept__img">
-                            <img src="assets/images/IMG_59461.jpg" alt="Vitrine The Breakfast Club" class="concept__img">
-                        </div>
+                    <div class="concept__header">
+                        <span class="tag tag--pink">The Concept</span>
+                        <h2 class="section__title">Bien plus qu'un<br><span class="text-accent text-accent--orange">smoothie bar.</span></h2>
                     </div>
-                    <div class="concept__grid">
-                        <div class="concept__problem">
-                            <h3 class="concept__label">Le probl&egrave;me</h3>
-                            <ul class="concept__list">
-                                <li>Manque d'&eacute;nergie</li>
-                                <li>Difficult&eacute; &agrave; manger sainement</li>
-                                <li>Motivation instable</li>
-                            </ul>
+                    <div class="concept__split">
+                        <div class="concept__text">
+                            <p class="concept__intro">Ici, ce n'est pas seulement un endroit o&ugrave; boire un smoothie le matin. C'est un centre de remise en forme et de nutrition, o&ugrave; l'on t'accompagne chaque jour pour t'aider &agrave; atteindre tes objectifs.</p>
+                            <div class="concept__images">
+                                <img src="assets/images/IMG_59461.jpg" alt="Vitrine The Breakfast Club" class="concept__img">
+                            </div>
                         </div>
-                        <div class="concept__solution">
-                            <h3 class="concept__label">Notre solution</h3>
-                            <p>Nous t'accompagnons chaque jour avec des produits adapt&eacute;s, un suivi personnalis&eacute; et une communaut&eacute; motivante.</p>
-                        </div>
-                        <div class="concept__steps">
-                            <img src="assets/images/IMG_5932.jpg" alt="Notre processus de coaching &eacute;tape par &eacute;tape" class="concept__steps-img">
+                        <div class="concept__blocks">
+                            <div class="concept__problem">
+                                <div class="concept__block-strip concept__block-strip--pink"></div>
+                                <div class="concept__block-content">
+                                    <h3 class="concept__label">Le probl&egrave;me</h3>
+                                    <ul class="concept__list">
+                                        <li>Manque d'&eacute;nergie</li>
+                                        <li>Difficult&eacute; &agrave; manger sainement</li>
+                                        <li>Motivation instable</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="concept__solution">
+                                <div class="concept__block-strip concept__block-strip--green"></div>
+                                <div class="concept__block-content">
+                                    <h3 class="concept__label">Notre solution</h3>
+                                    <p>Nous t'accompagnons chaque jour avec des produits adapt&eacute;s, un suivi personnalis&eacute; et une communaut&eacute; motivante.</p>
+                                </div>
+                            </div>
+                            <div class="concept__steps">
+                                <img src="assets/images/IMG_5932.jpg" alt="Notre processus de coaching" class="concept__steps-img">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,11 +140,12 @@
         <!-- ==================== SERVICES ==================== -->
         <section class="section section--services" id="services">
             <div class="container">
-                <p class="section__tag">What we offer</p>
-                <h2 class="section__title">Tout ce qu'il te faut<br><span class="text-accent">chaque matin.</span></h2>
+                <span class="tag tag--yellow">What we offer</span>
+                <h2 class="section__title section__title--light">Tout ce qu'il te faut<br><span class="text-accent text-accent--pink">chaque matin.</span></h2>
 
                 <div class="services__grid">
-                    <div class="service-card">
+                    <div class="service-card service-card--orange">
+                        <div class="service-card__number">01</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 8h24v4c0 8.837-7.163 16-16 16h-4C11.582 28 8 24.418 8 20V8h4z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -141,7 +158,8 @@
                         <p class="service-card__desc">Commence ta matin&eacute;e avec une infusion purifiante pour r&eacute;veiller et revitaliser ton corps.</p>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card service-card--pink">
+                        <div class="service-card__number">02</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="12" y="16" width="24" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/>
@@ -154,7 +172,8 @@
                         <p class="service-card__desc">Des shakes gourmands, &eacute;quilibr&eacute;s et riches en nutriments pour alimenter toute ta matin&eacute;e.</p>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card service-card--yellow">
+                        <div class="service-card__number">03</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 24h32M8 24c0-8.837 7.163-16 16-16s16 7.163 16 16M8 24l2 16h28l2-16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -165,7 +184,8 @@
                         <p class="service-card__desc">Des conseils personnalis&eacute;s pour t'aider &agrave; construire des habitudes alimentaires saines et durables.</p>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card service-card--green">
+                        <div class="service-card__number">04</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24 4v8M4 24h8M36 24h8M10.1 10.1l5.66 5.66M32.24 10.1l-5.66 5.66" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
@@ -177,7 +197,8 @@
                         <p class="service-card__desc">On suit ta progression chaque matin et on te garde sur la bonne voie vers tes objectifs.</p>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-card service-card--peach">
+                        <div class="service-card__number">05</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24 44s16-8.4 16-20V10L24 4 8 10v14c0 11.6 16 20 16 20z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -206,8 +227,8 @@
         <!-- ==================== RESULTS / BEFORE-AFTER ==================== -->
         <section class="section section--results" id="results">
             <div class="container">
-                <p class="section__tag">Transformations</p>
-                <h2 class="section__title">Real people,<br><span class="text-accent">real results.</span></h2>
+                <span class="tag tag--orange">Transformations</span>
+                <h2 class="section__title">Real people,<br><span class="text-accent text-accent--green">real results.</span></h2>
                 <p class="section__subtitle">Les transformations de nos membres parlent d'elles-m&ecirc;mes. La r&eacute;gularit&eacute; et l'accompagnement font toute la diff&eacute;rence.</p>
 
                 <div class="results__grid">
@@ -254,18 +275,33 @@
         <!-- ==================== TESTIMONIALS ==================== -->
         <section class="section section--testimonials">
             <div class="container">
-                <div class="testimonials__wrapper">
-                    <div class="testimonial">
-                        <p class="testimonial__text">&laquo; Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. Perte de poids, meilleure composition corporelle et tellement plus d'&eacute;nergie au quotidien. &raquo;</p>
-                        <p class="testimonial__author">- C&eacute;line</p>
+                <span class="tag tag--peach">Testimonials</span>
+                <h2 class="section__title section__title--center">Ce qu'ils en<br><span class="text-accent text-accent--yellow">disent.</span></h2>
+
+                <div class="testimonials__grid">
+                    <div class="testimonial testimonial--pink">
+                        <div class="testimonial__quote">&ldquo;</div>
+                        <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. Perte de poids, meilleure composition corporelle et tellement plus d'&eacute;nergie au quotidien.</p>
+                        <div class="testimonial__footer">
+                            <div class="testimonial__avatar">C</div>
+                            <p class="testimonial__author">C&eacute;line</p>
+                        </div>
                     </div>
-                    <div class="testimonial">
-                        <p class="testimonial__text">&laquo; La communaut&eacute;, c'est ce qui me fait revenir. Tu n'es jamais seul, et les coachs se soucient vraiment de ta progression. &raquo;</p>
-                        <p class="testimonial__author">- Membre</p>
+                    <div class="testimonial testimonial--orange">
+                        <div class="testimonial__quote">&ldquo;</div>
+                        <p class="testimonial__text">La communaut&eacute;, c'est ce qui me fait revenir. Tu n'es jamais seul, et les coachs se soucient vraiment de ta progression.</p>
+                        <div class="testimonial__footer">
+                            <div class="testimonial__avatar">M</div>
+                            <p class="testimonial__author">Membre</p>
+                        </div>
                     </div>
-                    <div class="testimonial">
-                        <p class="testimonial__text">&laquo; J'ai remplac&eacute; mon caf&eacute; du matin par leur smoothie et je ne me suis jamais senti aussi bien. C'est devenu mon rituel quotidien. &raquo;</p>
-                        <p class="testimonial__author">- Membre</p>
+                    <div class="testimonial testimonial--green">
+                        <div class="testimonial__quote">&ldquo;</div>
+                        <p class="testimonial__text">J'ai remplac&eacute; mon caf&eacute; du matin par leur smoothie et je ne me suis jamais senti aussi bien. C'est devenu mon rituel quotidien.</p>
+                        <div class="testimonial__footer">
+                            <div class="testimonial__avatar">M</div>
+                            <p class="testimonial__author">Membre</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -276,8 +312,8 @@
             <div class="container">
                 <div class="pricing">
                     <div class="pricing__text">
-                        <p class="section__tag">Get started</p>
-                        <h2 class="section__title">Ton programme<br><span class="text-accent">sur 10 jours.</span></h2>
+                        <span class="tag tag--green">Get started</span>
+                        <h2 class="section__title">Ton programme<br><span class="text-accent text-accent--orange">sur 10 jours.</span></h2>
                         <p class="pricing__desc">Une solution simple pour tester, progresser et voir de vrais r&eacute;sultats.</p>
                     </div>
                     <div class="pricing__card">
@@ -294,7 +330,7 @@
                             <li>Bilan de composition corporelle</li>
                             <li>Acc&egrave;s &agrave; la communaut&eacute;</li>
                         </ul>
-                        <a href="#contact" class="btn btn--primary btn--full">Je commence</a>
+                        <a href="#contact" class="btn btn--gradient btn--full">Je commence</a>
                     </div>
                 </div>
             </div>
@@ -304,7 +340,7 @@
         <section class="section section--booking">
             <div class="container">
                 <div class="booking">
-                    <h2 class="section__title">R&eacute;serve ton <span class="text-accent">cr&eacute;neau.</span></h2>
+                    <h2 class="section__title section__title--center">R&eacute;serve ton <span class="text-accent text-accent--pink">cr&eacute;neau.</span></h2>
                     <p class="booking__desc">Chaque matin, on accueille jusqu'&agrave; 10 personnes par cr&eacute;neau d'1 heure avec un coach d&eacute;di&eacute;. R&eacute;serve ta place.</p>
                     <div class="booking__slots">
                         <div class="booking__slot">
@@ -324,7 +360,7 @@
                             <span class="booking__status">Disponible</span>
                         </div>
                     </div>
-                    <a href="#contact" class="btn btn--primary">R&eacute;server via WhatsApp</a>
+                    <a href="#contact" class="btn btn--gradient">R&eacute;server via WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -334,8 +370,8 @@
             <div class="container">
                 <div class="contact">
                     <div class="contact__info">
-                        <p class="section__tag">Come visit</p>
-                        <h2 class="section__title">Viens nous <span class="text-accent">voir.</span></h2>
+                        <span class="tag tag--yellow">Come visit</span>
+                        <h2 class="section__title section__title--light">Viens nous <span class="text-accent text-accent--peach">voir.</span></h2>
                         <div class="contact__details">
                             <div class="contact__item">
                                 <h4>Adresse</h4>
