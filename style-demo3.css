@@ -422,6 +422,7 @@ ul {
    =========================== */
 .hero {
     padding-top: 140px;
+    padding-bottom: 60px;
     min-height: 100vh;
     background: var(--cream);
     position: relative;
