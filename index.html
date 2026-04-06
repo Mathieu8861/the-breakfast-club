@@ -23,6 +23,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style-demo3.css">
+    <link rel="stylesheet" href="style-demo4-extra.css">
 </head>
 <body>
 
@@ -41,10 +42,7 @@
     <header class="header" id="header">
         <div class="header__inner">
             <nav class="nav">
-                <a href="#" class="nav__logo">
-                    <img src="assets/logo-black.png" alt="The Breakfast Club" class="nav__logo-dark">
-                    <img src="assets/logo-white.png" alt="The Breakfast Club" class="nav__logo-light">
-                </a>
+                <a href="#" class="nav__logo" style="display:none;"></a>
 
                 <ul class="nav__menu" id="nav-menu">
                     <li><a href="#home" class="nav__link">Accueil</a></li>
@@ -78,9 +76,25 @@
                         <div class="hero__shape hero__shape--dots"></div>
                     </div>
                     <span class="hero__badge">Welcome to</span>
-                    <h1 class="hero__title">THE<br>BREAKFAST<br><span class="hero__title-accent">CLUB.</span></h1>
+                    <h1 class="hero__title">
+                        <img src="assets/logo-black-hero.png" alt="The Breakfast Club" class="hero__title-logo">
+                    </h1>
                     <p class="hero__subtitle">Deviens la meilleure version de toi-m&ecirc;me</p>
-                    <p class="hero__desc">Un centre de remise en forme et de nutrition, bien plus qu'un simple smoothie du matin.</p>
+                    <p class="hero__desc">Un centre de remise en forme et de nutrition au c&oelig;ur d'Uccle, bien plus qu'un simple smoothie du matin. Chaque jour, on t'accompagne avec un petit-d&eacute;jeuner &eacute;quilibr&eacute;, un suivi personnalis&eacute; et une communaut&eacute; qui te pousse &agrave; donner le meilleur de toi-m&ecirc;me.</p>
+                    <div class="hero__stats">
+                        <div class="hero__stat">
+                            <span class="hero__stat-number">600+</span>
+                            <span class="hero__stat-label">Membres</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-number">7h-11h</span>
+                            <span class="hero__stat-label">Chaque matin</span>
+                        </div>
+                        <div class="hero__stat">
+                            <span class="hero__stat-number">95&euro;</span>
+                            <span class="hero__stat-label">10 sessions</span>
+                        </div>
+                    </div>
                     <div class="hero__actions">
                         <a href="#concept" class="btn btn--gradient">D&eacute;couvrir le concept</a>
                         <a href="#contact" class="btn btn--outline-dark">Venir au club</a>
@@ -89,9 +103,26 @@
                 <div class="hero__right">
                     <div class="hero__img-wrapper">
                         <video class="hero__video" autoplay muted loop playsinline>
-                            <source src="assets/hero-video.mp4" type="video/mp4">
+                            <source src="assets/hero-video-bienvenue.mp4#t=4" type="video/mp4">
                         </video>
                         <div class="hero__img-accent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHILOSOPHY (NEW) ==================== -->
+        <section class="section section--philosophy">
+            <div class="container">
+                <div class="philosophy">
+                    <div class="philosophy__content">
+                        <span class="tag tag--yellow">Notre philosophie</span>
+                        <h2 class="section__title">Corps sain,<br><span class="text-accent text-accent--green">esprit heureux.</span></h2>
+                        <p class="philosophy__text">Chez The Breakfast Club, on croit qu'un bon petit-d&eacute;jeuner peut changer ta journ&eacute;e. Et qu'une bonne habitude r&eacute;p&eacute;t&eacute;e chaque matin peut changer ta vie. C'est pour &ccedil;a qu'on a cr&eacute;&eacute; un lieu o&ugrave; la nutrition, le coaching et l'esprit de groupe se rencontrent d&egrave;s les premi&egrave;res heures de la journ&eacute;e.</p>
+                        <p class="philosophy__text">On ne vend pas de r&eacute;gime miracle. On t'aide &agrave; construire des habitudes durables, &agrave; comprendre ce que ton corps a besoin, et &agrave; prendre plaisir &agrave; bien manger. Le r&eacute;sultat ? Plus d'&eacute;nergie, une meilleure composition corporelle, et une vraie confiance en toi.</p>
+                    </div>
+                    <div class="philosophy__image">
+                        <img src="assets/images/IMG_59471.jpg" alt="Ambiance du club" class="philosophy__img">
                     </div>
                 </div>
             </div>
@@ -154,11 +185,44 @@
             </div>
         </section>
 
+        <!-- ==================== HOW IT WORKS (NEW) ==================== -->
+        <section class="section section--howitworks">
+            <div class="container">
+                <span class="tag tag--orange">How it works</span>
+                <h2 class="section__title section__title--center">Comment &ccedil;a<br><span class="text-accent text-accent--pink">fonctionne ?</span></h2>
+                <p class="section__subtitle section__subtitle--center">De ta premi&egrave;re visite &agrave; tes r&eacute;sultats, voici les &eacute;tapes de ton parcours au Breakfast Club.</p>
+
+                <div class="steps__grid">
+                    <div class="step-card">
+                        <div class="step-card__number">1</div>
+                        <h3 class="step-card__title">Premi&egrave;re visite</h3>
+                        <p class="step-card__desc">Tu viens d&eacute;couvrir le club, rencontrer les coachs et go&ucirc;ter ton premier breakfast. On fait un bilan de ta composition corporelle et on discute de tes objectifs.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-card__number">2</div>
+                        <h3 class="step-card__title">Ton programme</h3>
+                        <p class="step-card__desc">On te propose un accompagnement personnalis&eacute; sur 10 jours. Chaque matin, tu viens prendre ton th&eacute; d&eacute;tox, ton smoothie prot&eacute;in&eacute; et tes conseils nutrition adapt&eacute;s.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-card__number">3</div>
+                        <h3 class="step-card__title">Suivi quotidien</h3>
+                        <p class="step-card__desc">Ton coach suit ta progression jour apr&egrave;s jour. On ajuste tes apports, on r&eacute;pond &agrave; tes questions et on s'assure que tu restes motiv&eacute;. Tu n'es jamais seul dans ta d&eacute;marche.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-card__number">4</div>
+                        <h3 class="step-card__title">R&eacute;sultats visibles</h3>
+                        <p class="step-card__desc">En 10 jours, tu constates les premiers changements : plus d'&eacute;nergie, meilleur sommeil, perte de poids, meilleure composition corporelle. Et surtout, une routine que tu as envie de garder.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== SERVICES ==================== -->
         <section class="section section--services" id="services">
             <div class="container">
                 <span class="tag tag--yellow">What we offer</span>
                 <h2 class="section__title section__title--light">Tout ce qu'il te faut<br><span class="text-accent text-accent--pink">chaque matin.</span></h2>
+                <p class="section__subtitle section__subtitle--light">Nos breakfasts sont con&ccedil;us pour t'apporter tout ce dont ton corps a besoin pour bien d&eacute;marrer la journ&eacute;e. Chaque &eacute;l&eacute;ment a un r&ocirc;le pr&eacute;cis dans ton programme de remise en forme.</p>
 
                 <div class="services__grid">
                     <div class="service-card service-card--orange">
@@ -172,7 +236,7 @@
                             </svg>
                         </div>
                         <h3 class="service-card__title">Th&eacute; d&eacute;tox</h3>
-                        <p class="service-card__desc">Commence ta matin&eacute;e avec une infusion purifiante pour r&eacute;veiller et revitaliser ton corps.</p>
+                        <p class="service-card__desc">Commence ta matin&eacute;e avec une infusion purifiante &agrave; base de plantes qui r&eacute;veille ton m&eacute;tabolisme, aide &agrave; &eacute;liminer les toxines et pr&eacute;pare ton corps &agrave; absorber les nutriments de ton breakfast. C'est la premi&egrave;re &eacute;tape essentielle de chaque matin au club.</p>
                     </div>
 
                     <div class="service-card service-card--pink">
@@ -191,7 +255,7 @@
                             </svg>
                         </div>
                         <h3 class="service-card__title">Smoothies prot&eacute;in&eacute;s</h3>
-                        <p class="service-card__desc">Des shakes gourmands, &eacute;quilibr&eacute;s et riches en nutriments pour alimenter toute ta matin&eacute;e.</p>
+                        <p class="service-card__desc">Des shakes gourmands, &eacute;quilibr&eacute;s et riches en prot&eacute;ines de qualit&eacute;, vitamines et fibres. Chaque smoothie est adapt&eacute; &agrave; tes objectifs &mdash; perte de poids, prise de masse musculaire ou simplement maintien d'une alimentation saine. Plusieurs saveurs au choix pour ne jamais se lasser.</p>
                     </div>
 
                     <div class="service-card service-card--yellow">
@@ -203,7 +267,7 @@
                             </svg>
                         </div>
                         <h3 class="service-card__title">Conseils nutrition</h3>
-                        <p class="service-card__desc">Des conseils personnalis&eacute;s pour t'aider &agrave; construire des habitudes alimentaires saines et durables.</p>
+                        <p class="service-card__desc">Nos coachs sont form&eacute;s pour te donner des conseils nutritionnels personnalis&eacute;s, adapt&eacute;s &agrave; ton mode de vie, tes contraintes et tes go&ucirc;ts. On t'apprend &agrave; lire les signaux de ton corps et &agrave; faire des choix alimentaires intelligents, m&ecirc;me en dehors du club.</p>
                     </div>
 
                     <div class="service-card service-card--green">
@@ -216,7 +280,7 @@
                             </svg>
                         </div>
                         <h3 class="service-card__title">Suivi quotidien</h3>
-                        <p class="service-card__desc">On suit ta progression chaque matin et on te garde sur la bonne voie vers tes objectifs.</p>
+                        <p class="service-card__desc">Chaque matin, on fait le point avec toi. Comment tu te sens, comment tu as dormi, ce que tu as mang&eacute; la veille. On ajuste tes apports en fonction de ta progression et on te donne les cl&eacute;s pour optimiser tes r&eacute;sultats jour apr&egrave;s jour.</p>
                     </div>
 
                     <div class="service-card service-card--peach">
@@ -228,21 +292,24 @@
                             </svg>
                         </div>
                         <h3 class="service-card__title">Motivation &amp; communaut&eacute;</h3>
-                        <p class="service-card__desc">Tu n'es jamais seul. Rejoins une communaut&eacute; qui avance ensemble.</p>
+                        <p class="service-card__desc">Tu n'es jamais seul dans ta d&eacute;marche. Au Breakfast Club, tu rejoins une communaut&eacute; de personnes qui partagent les m&ecirc;mes objectifs. L'&eacute;nergie du groupe, les encouragements des coachs et l'ambiance chaleureuse du lieu font toute la diff&eacute;rence.</p>
                     </div>
 
                     <div class="service-card service-card--pink">
                         <div class="service-card__number">06</div>
                         <div class="service-card__icon">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="8" y="14" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2.5"/>
-                                <path d="M16 14V10a8 8 0 1116 0v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                                <path d="M24 24v6M20 30h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="24" cy="24" r="2" fill="currentColor" opacity="0.5"/>
+                                <rect x="6" y="10" width="36" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                                <path d="M6 18h36M16 10V6M32 10V6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="18" cy="26" r="2" fill="currentColor" opacity="0.5"/>
+                                <circle cx="24" cy="26" r="2" fill="currentColor" opacity="0.5"/>
+                                <circle cx="30" cy="26" r="2" fill="currentColor" opacity="0.5"/>
+                                <circle cx="18" cy="32" r="2" fill="currentColor" opacity="0.5"/>
+                                <circle cx="24" cy="32" r="2" fill="currentColor" opacity="0.5"/>
                             </svg>
                         </div>
-                        <h3 class="service-card__title">Bilan corporel</h3>
-                        <p class="service-card__desc">Mesure ta composition corporelle pour suivre tes progr&egrave;s avec des donn&eacute;es concr&egrave;tes.</p>
+                        <h3 class="service-card__title">Bilan de composition corporelle</h3>
+                        <p class="service-card__desc">&Agrave; ton arriv&eacute;e et r&eacute;guli&egrave;rement pendant ton parcours, on r&eacute;alise un bilan complet de ta composition corporelle. Masse grasse, masse musculaire, hydratation &mdash; des donn&eacute;es concr&egrave;tes pour mesurer tes progr&egrave;s et ajuster ton programme.</p>
                     </div>
                 </div>
             </div>
@@ -260,12 +327,30 @@
             </div>
         </section>
 
+        <!-- ==================== COMMUNITY (NEW) ==================== -->
+        <section class="section section--community">
+            <div class="container">
+                <div class="community">
+                    <div class="community__image">
+                        <img src="assets/images/IMG_3019.jpg" alt="La communaut&eacute; du Breakfast Club" class="community__img">
+                    </div>
+                    <div class="community__content">
+                        <span class="tag tag--green">Communaut&eacute;</span>
+                        <h2 class="section__title">Tu n'es jamais <span class="text-accent text-accent--pink">seul.</span></h2>
+                        <p class="community__text">L'un des piliers du Breakfast Club, c'est la communaut&eacute;. Quand tu passes notre porte le matin, tu ne viens pas juste boire un smoothie &mdash; tu rejoins un groupe de personnes qui, comme toi, ont d&eacute;cid&eacute; de prendre soin d'elles.</p>
+                        <p class="community__text">Les habitu&eacute;s se connaissent, s'encouragent, partagent leurs avanc&eacute;es. Les nouveaux sont accueillis &agrave; bras ouverts. C'est cette dynamique collective qui fait que les r&eacute;sultats sont l&agrave; : quand on est entour&eacute;, on l&acirc;che moins facilement.</p>
+                        <p class="community__text">Nos coachs ne sont pas l&agrave; juste pour servir des smoothies. Ils connaissent chaque membre par son pr&eacute;nom, suivent sa progression et adaptent leurs conseils au quotidien. C'est un vrai suivi humain, dans un cadre convivial et bienveillant.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== RESULTS / BEFORE-AFTER ==================== -->
         <section class="section section--results" id="results">
             <div class="container">
                 <span class="tag tag--orange">Transformations</span>
                 <h2 class="section__title">Real people,<br><span class="text-accent text-accent--green">real results.</span></h2>
-                <p class="section__subtitle">Les transformations de nos membres parlent d'elles-m&ecirc;mes. La r&eacute;gularit&eacute; et l'accompagnement font toute la diff&eacute;rence.</p>
+                <p class="section__subtitle">Les transformations de nos membres parlent d'elles-m&ecirc;mes. La r&eacute;gularit&eacute; et l'accompagnement font toute la diff&eacute;rence. En quelques semaines de routine au club, les changements sont visibles &mdash; et mesurables.</p>
 
                 <div class="results__grid">
                     <div class="result-card">
@@ -278,6 +363,10 @@
                         <img src="assets/images/before-after-6.jpg" alt="Transformation avant apr&egrave;s" class="result-card__img" loading="lazy">
                     </div>
                 </div>
+
+                <div class="results__text">
+                    <p>Ces r&eacute;sultats ne sont pas des exceptions &mdash; ils sont la norme pour ceux qui s'engagent dans le programme. La cl&eacute;, c'est la r&eacute;gularit&eacute; : venir chaque matin, suivre les conseils de ton coach, et laisser les bonnes habitudes faire leur travail. Pas de r&eacute;gime extr&ecirc;me, pas de privation &mdash; juste une alimentation adapt&eacute;e et un suivi s&eacute;rieux.</p>
+                </div>
             </div>
         </section>
 
@@ -286,11 +375,12 @@
             <div class="container">
                 <span class="tag tag--peach">Testimonials</span>
                 <h2 class="section__title section__title--center">Ce qu'ils en<br><span class="text-accent text-accent--yellow">disent.</span></h2>
+                <p class="section__subtitle section__subtitle--center">Les retours de nos membres sont notre plus grande fiert&eacute;. Voici ce que vivent au quotidien ceux qui ont rejoint le club.</p>
 
                 <div class="testimonials__grid">
                     <div class="testimonial testimonial--pink">
                         <div class="testimonial__quote">&ldquo;</div>
-                        <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. Perte de poids, meilleure composition corporelle et tellement plus d'&eacute;nergie au quotidien.</p>
+                        <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. J'ai perdu du poids, ma composition corporelle a compl&egrave;tement chang&eacute; et j'ai tellement plus d'&eacute;nergie au quotidien. Le matin, j'ai h&acirc;te de me lever pour aller au club. C'est devenu bien plus qu'une habitude &mdash; c'est un mode de vie.</p>
                         <div class="testimonial__footer">
                             <div class="testimonial__avatar">C</div>
                             <p class="testimonial__author">C&eacute;line, 50 visites</p>
@@ -298,7 +388,7 @@
                     </div>
                     <div class="testimonial testimonial--orange">
                         <div class="testimonial__quote">&ldquo;</div>
-                        <p class="testimonial__text">La communaut&eacute;, c'est ce qui me fait revenir. Tu n'es jamais seul, et les coachs se soucient vraiment de ta progression.</p>
+                        <p class="testimonial__text">La communaut&eacute;, c'est ce qui me fait revenir chaque matin. Tu n'es jamais seul, et les coachs se soucient vraiment de ta progression. Ils savent exactement o&ugrave; j'en suis, ce qu'il faut ajuster. J'ai essay&eacute; beaucoup de choses avant, mais rien n'a eu cet impact.</p>
                         <div class="testimonial__footer">
                             <div class="testimonial__avatar">J</div>
                             <p class="testimonial__author">Julien, membre depuis 3 mois</p>
@@ -306,7 +396,7 @@
                     </div>
                     <div class="testimonial testimonial--green">
                         <div class="testimonial__quote">&ldquo;</div>
-                        <p class="testimonial__text">J'ai remplac&eacute; mon caf&eacute; du matin par leur smoothie et je ne me suis jamais senti aussi bien. C'est devenu mon rituel quotidien.</p>
+                        <p class="testimonial__text">J'ai remplac&eacute; mon caf&eacute; et mes tartines du matin par un th&eacute; d&eacute;tox et un smoothie prot&eacute;in&eacute;, et je ne me suis jamais senti aussi bien. Mon &eacute;nergie est stable toute la matin&eacute;e, je ne grignote plus et mes proches ont remarqu&eacute; le changement.</p>
                         <div class="testimonial__footer">
                             <div class="testimonial__avatar">L</div>
                             <p class="testimonial__author">Laura, membre depuis 2 mois</p>
@@ -323,7 +413,8 @@
                     <div class="pricing__text">
                         <span class="tag tag--green">Get started</span>
                         <h2 class="section__title">Ton programme<br><span class="text-accent text-accent--orange">sur 10 jours.</span></h2>
-                        <p class="pricing__desc">Une solution simple pour tester, progresser et voir de vrais r&eacute;sultats.</p>
+                        <p class="pricing__desc">Une solution simple et accessible pour tester le concept, progresser et voir de vrais r&eacute;sultats. Pas d'engagement longue dur&eacute;e &mdash; juste 10 matins pour changer tes habitudes.</p>
+                        <p class="pricing__desc">La carte comprend tout : th&eacute; d&eacute;tox, smoothie prot&eacute;in&eacute;, coaching quotidien, bilan de composition corporelle et acc&egrave;s &agrave; notre communaut&eacute;. Rien de cach&eacute;, tout est inclus.</p>
                     </div>
                     <div class="pricing__card">
                         <div class="pricing__badge">Le plus populaire</div>
@@ -335,11 +426,47 @@
                         <ul class="pricing__features">
                             <li>10 sessions petit-d&eacute;jeuner complet</li>
                             <li>Th&eacute; d&eacute;tox + smoothie prot&eacute;in&eacute;</li>
-                            <li>Coaching &amp; suivi quotidien</li>
+                            <li>Coaching &amp; suivi quotidien personnalis&eacute;</li>
                             <li>Bilan de composition corporelle</li>
-                            <li>Acc&egrave;s &agrave; la communaut&eacute;</li>
+                            <li>Acc&egrave;s &agrave; la communaut&eacute; du club</li>
+                            <li>Conseils nutrition en dehors du club</li>
                         </ul>
                         <a href="#contact" class="btn btn--gradient btn--full">Je commence</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ (NEW) ==================== -->
+        <section class="section section--faq">
+            <div class="container">
+                <span class="tag tag--pink">FAQ</span>
+                <h2 class="section__title section__title--center">Questions<br><span class="text-accent text-accent--orange">fr&eacute;quentes.</span></h2>
+
+                <div class="faq__grid">
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">C'est quoi exactement The Breakfast Club ?</h3>
+                        <p class="faq-item__answer">C'est un centre de remise en forme et de nutrition. Chaque matin de 7h &agrave; 11h, on t'accueille pour un petit-d&eacute;jeuner &eacute;quilibr&eacute; (th&eacute; d&eacute;tox + smoothie prot&eacute;in&eacute;), accompagn&eacute; d'un suivi nutritionnel personnalis&eacute; et d'une communaut&eacute; motivante.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">Je dois venir tous les jours ?</h3>
+                        <p class="faq-item__answer">Id&eacute;alement, oui ! La r&eacute;gularit&eacute; est la cl&eacute; des r&eacute;sultats. Mais la carte de 10 sessions te permet de venir &agrave; ton rythme. Plus tu es r&eacute;gulier, plus les effets sont rapides et durables.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">Est-ce que c'est adapt&eacute; &agrave; mon r&eacute;gime / mes allergies ?</h3>
+                        <p class="faq-item__answer">Absolument. Nos coachs adaptent les smoothies et les conseils en fonction de tes besoins, intol&eacute;rances et pr&eacute;f&eacute;rences. Chaque programme est personnalis&eacute;.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">Combien de temps avant de voir des r&eacute;sultats ?</h3>
+                        <p class="faq-item__answer">La plupart de nos membres constatent des changements d&egrave;s les 5 premiers jours : plus d'&eacute;nergie, meilleur sommeil, moins de fringales. Les r&eacute;sultats visibles sur la composition corporelle arrivent g&eacute;n&eacute;ralement entre 2 et 4 semaines.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">C'est ouvert &agrave; tout le monde ?</h3>
+                        <p class="faq-item__answer">Oui, homme ou femme, 18 ou 65 ans, sportif ou d&eacute;butant total. Notre accompagnement s'adapte &agrave; chaque profil. La seule condition : avoir envie de prendre soin de soi.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-item__question">Comment r&eacute;server mon cr&eacute;neau ?</h3>
+                        <p class="faq-item__answer">Contacte-nous via WhatsApp, Instagram ou par t&eacute;l&eacute;phone. On t'attribue un cr&eacute;neau d'1 heure le matin (max 10 personnes par cr&eacute;neau) pour un accompagnement de qualit&eacute;.</p>
                     </div>
                 </div>
             </div>
@@ -350,7 +477,7 @@
             <div class="container">
                 <div class="booking">
                     <h2 class="section__title section__title--center">R&eacute;serve ton <span class="text-accent text-accent--pink">cr&eacute;neau.</span></h2>
-                    <p class="booking__desc">Chaque matin, on accueille jusqu'&agrave; 10 personnes par cr&eacute;neau d'1 heure avec un coach d&eacute;di&eacute;. R&eacute;serve ta place.</p>
+                    <p class="booking__desc">Chaque matin, on accueille jusqu'&agrave; 10 personnes par cr&eacute;neau d'1 heure avec un coach d&eacute;di&eacute;. Ce format intimiste nous permet de t'offrir un suivi de qualit&eacute; et une attention personnalis&eacute;e. R&eacute;serve ta place pour &ecirc;tre s&ucirc;r d'avoir ton cr&eacute;neau.</p>
                     <div class="booking__slots">
                         <div class="booking__slot">
                             <span class="booking__time">7:00 - 8:00</span>
@@ -381,6 +508,7 @@
                     <div class="contact__info">
                         <span class="tag tag--yellow">Come visit</span>
                         <h2 class="section__title section__title--light">Viens nous <span class="text-accent text-accent--peach">voir.</span></h2>
+                        <p class="contact__intro">Ta premi&egrave;re visite est l'occasion de d&eacute;couvrir le lieu, de rencontrer les coachs et de go&ucirc;ter &agrave; notre breakfast. Aucun engagement &mdash; viens simplement voir si l'ambiance te correspond.</p>
                         <div class="contact__details">
                             <div class="contact__item">
                                 <h4>Adresse</h4>
