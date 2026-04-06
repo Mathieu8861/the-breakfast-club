@@ -203,19 +203,23 @@
     position: relative;
 }
 
-/* Decorative: pink circle bridging community → results */
-.section--community::after {
+/* Decorative: large pink circle overlapping community text block (right side) */
+.community {
+    position: relative;
+}
+
+.community::after {
     content: '';
     position: absolute;
-    bottom: -45px;
-    left: 200px;
-    width: 90px;
-    height: 90px;
+    bottom: -60px;
+    right: -80px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     background: var(--pink);
-    opacity: 0.1;
+    opacity: 0.08;
     pointer-events: none;
-    z-index: 2;
+    z-index: 0;
 }
 
 .community {
