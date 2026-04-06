@@ -337,6 +337,45 @@
 }
 
 /* ===========================
+   DECO UTILITY CLASSES (reusable decorative elements)
+   =========================== */
+.deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.deco--circle {
+    opacity: 0.08;
+}
+
+.deco--dots {
+    border-radius: 0;
+    opacity: 0.18;
+    background-size: 10px 10px;
+}
+
+/* Color variants — circles */
+.deco--circle.deco--pink { background: var(--pink); }
+.deco--circle.deco--orange { background: var(--orange); }
+.deco--circle.deco--green { background: var(--green); }
+.deco--circle.deco--yellow { background: var(--yellow); }
+.deco--circle.deco--peach { background: var(--peach); }
+
+/* Color variants — dots */
+.deco--dots.deco--pink { background-image: radial-gradient(var(--pink) 1.5px, transparent 1.5px); }
+.deco--dots.deco--orange { background-image: radial-gradient(var(--orange) 1.5px, transparent 1.5px); }
+.deco--dots.deco--green { background-image: radial-gradient(var(--green) 1.5px, transparent 1.5px); }
+.deco--dots.deco--yellow { background-image: radial-gradient(var(--yellow) 1.5px, transparent 1.5px); }
+.deco--dots.deco--peach { background-image: radial-gradient(var(--peach) 1.5px, transparent 1.5px); }
+
+/* Hide decos on small screens to keep it clean */
+@media (max-width: 768px) {
+    .deco { display: none; }
+}
+
+/* ===========================
    DECORATIVE ELEMENTS (Demo 1 — text-rich)
    =========================== */
 
