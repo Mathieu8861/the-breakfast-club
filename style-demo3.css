@@ -626,13 +626,13 @@ ul {
 .section--concept::after {
     content: '';
     position: absolute;
-    bottom: -60px;
+    bottom: -30px;
     right: 120px;
-    width: 120px;
-    height: 120px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background: var(--peach);
-    opacity: 0.18;
+    opacity: 0.12;
     pointer-events: none;
     z-index: 2;
 }
@@ -959,13 +959,13 @@ ul {
 .section--results::after {
     content: '';
     position: absolute;
-    bottom: -50px;
+    bottom: -25px;
     left: 80px;
-    width: 100px;
-    height: 100px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: var(--green);
-    opacity: 0.12;
+    opacity: 0.1;
     pointer-events: none;
     z-index: 2;
 }
@@ -1074,13 +1074,13 @@ ul {
 .section--testimonials::after {
     content: '';
     position: absolute;
-    bottom: -55px;
+    bottom: -25px;
     right: 140px;
-    width: 110px;
-    height: 110px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: var(--yellow);
-    opacity: 0.3;
+    opacity: 0.15;
     pointer-events: none;
     z-index: 2;
 }
