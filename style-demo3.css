@@ -38,7 +38,7 @@
     --font-body: 'Raleway', sans-serif;
 
     /* Spacing */
-    --section-padding: 120px 0;
+    --section-padding: 80px 0;
     --container-width: 1200px;
     --container-padding: 0 24px;
 
@@ -1682,7 +1682,7 @@ ul {
    =========================== */
 @media (max-width: 1024px) {
     :root {
-        --section-padding: 100px 0;
+        --section-padding: 70px 0;
     }
 
     .hero__split {
@@ -1735,7 +1735,7 @@ ul {
    =========================== */
 @media (max-width: 768px) {
     :root {
-        --section-padding: 80px 0;
+        --section-padding: 60px 0;
     }
 
     /* Nav mobile */
