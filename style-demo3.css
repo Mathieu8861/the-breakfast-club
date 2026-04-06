@@ -552,9 +552,9 @@ ul {
     right: -40px;
     width: 260px;
     height: 320px;
-    background-image: radial-gradient(var(--pink) 1.8px, transparent 1.8px);
+    background-image: radial-gradient(var(--green) 1.8px, transparent 1.8px);
     background-size: 14px 14px;
-    opacity: 0.12;
+    opacity: 0.15;
     pointer-events: none;
     z-index: 0;
 }
