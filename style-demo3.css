@@ -655,6 +655,47 @@ ul {
     border-radius: var(--radius-md);
 }
 
+.concept__img--square {
+    aspect-ratio: 1;
+    height: auto;
+}
+
+/* Concept highlights / key stats */
+.concept__highlights {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.concept__highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.concept__highlight-number {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+.concept__highlight-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .concept__blocks {
     display: flex;
     flex-direction: column;
