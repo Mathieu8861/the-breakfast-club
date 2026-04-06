@@ -333,6 +333,128 @@
 }
 
 /* ===========================
+   DECORATIVE ELEMENTS (Demo 1 — text-rich)
+   =========================== */
+
+/* 1. Dot grid peach behind hero logo */
+.hero__title-logo {
+    position: relative;
+}
+
+.hero__title::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -30px;
+    width: 80px;
+    height: 100px;
+    background-image: radial-gradient(var(--peach) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 2. Green circle right of philosophy, bridging → concept */
+.section--philosophy::after {
+    content: '';
+    position: absolute;
+    bottom: -55px;
+    right: 80px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--green);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 3. Pink dot grid top-right of How It Works */
+.section--howitworks::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    background-image: radial-gradient(var(--pink) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 4. Yellow dot grid right side of services (inside, no overflow conflict) */
+.section--services .service-card:last-child {
+    position: relative;
+}
+
+.section--services .service-card:last-child::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 50px;
+    height: 50px;
+    background-image: radial-gradient(var(--yellow) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 5. Green dots bridging gallery → community */
+.section--gallery {
+    position: relative;
+}
+
+.section--gallery::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    right: 120px;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(var(--green) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 6. Peach circle bridging FAQ → booking */
+.section--faq::after {
+    content: '';
+    position: absolute;
+    bottom: -45px;
+    right: 100px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--peach);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 7. Pink dot grid left of booking */
+
+.section--booking::after {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    width: 70px;
+    height: 90px;
+    background-image: radial-gradient(var(--pink) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===========================
    RESPONSIVE
    =========================== */
 @media (max-width: 1024px) {

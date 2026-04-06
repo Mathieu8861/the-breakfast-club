@@ -1307,6 +1307,7 @@ ul {
    =========================== */
 .section--booking {
     background: var(--white);
+    position: relative;
 }
 
 /* Decorative: gradient line right — stays inside */
