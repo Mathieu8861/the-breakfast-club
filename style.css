@@ -299,7 +299,7 @@ button {
 }
 
 .nav__logo img {
-    height: 72px;
+    height: 100px;
     width: auto;
     filter: brightness(0) invert(1);
     transition: var(--transition-normal);
