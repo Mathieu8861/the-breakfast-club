@@ -361,10 +361,15 @@
 
 /* Philosophy image: green circle, décalé en haut à gauche */
 .philosophy__image .deco-behind--green {
-    top: -25px;
-    left: -25px;
+    top: -30px;
+    left: -30px;
     background: var(--green);
-    opacity: 0.15;
+    opacity: 0.18;
+}
+
+.philosophy__image img {
+    position: relative;
+    z-index: 1;
 }
 
 /* Community image: peach circle, décalé en bas à droite */
