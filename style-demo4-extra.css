@@ -587,25 +587,28 @@
 }
 
 .testimonials__track .testimonial {
-    padding: 40px 36px;
-    font-size: 1rem;
+    background: #faf7f2;
+    padding: 28px 28px;
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    max-width: 440px;
 }
 
 .testimonials__track .testimonial__text {
-    font-size: 1.1rem;
-    line-height: 1.9;
+    font-size: 0.95rem;
+    line-height: 1.75;
 }
 
 .testimonials__track .testimonial__quote {
-    font-size: 5rem;
-    margin-bottom: -30px;
+    font-size: 3.5rem;
+    margin-bottom: -20px;
 }
 
 .testimonials__nav {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 20px;
+    margin-top: 16px;
 }
 
 .testimonials__arrow {
