@@ -878,8 +878,9 @@ ul {
 .service-card--peach .service-card__icon { color: var(--peach); }
 
 .service-card__title {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
     text-transform: uppercase;
     color: var(--white);
     margin-bottom: 12px;
