@@ -368,7 +368,7 @@
                 <span class="tag tag--peach">Testimonials</span>
                 <h2 class="section__title section__title--center">Ce qu'ils en<br><span class="text-accent text-accent--yellow">disent.</span></h2>
 
-                <div class="testimonials__grid-layout">
+                <div class="testimonials__layout">
                     <!-- Vidéo gauche -->
                     <div class="testimonials__video">
                         <video class="testimonials__video-player" controls playsinline preload="metadata">
@@ -376,53 +376,29 @@
                         </video>
                     </div>
 
-                    <!-- Carrousel haut droite -->
-                    <div class="testimonials__carousel">
-                        <div class="testimonials__track">
-                            <div class="testimonial testimonial--active testimonial--pink">
-                                <div class="testimonial__quote">&ldquo;</div>
-                                <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. J'ai perdu du poids, ma composition corporelle a compl&egrave;tement chang&eacute; et j'ai tellement plus d'&eacute;nergie au quotidien. C'est devenu bien plus qu'une habitude &mdash; c'est un mode de vie.</p>
-                                <div class="testimonial__footer">
-                                    <div class="testimonial__avatar">C</div>
-                                    <p class="testimonial__author">C&eacute;line, 50 visites</p>
-                                </div>
-                            </div>
-                            <div class="testimonial testimonial--orange">
-                                <div class="testimonial__quote">&ldquo;</div>
-                                <p class="testimonial__text">La communaut&eacute;, c'est ce qui me fait revenir chaque matin. Les coachs se soucient vraiment de ta progression. Ils savent exactement o&ugrave; j'en suis, ce qu'il faut ajuster. Rien n'a eu cet impact.</p>
-                                <div class="testimonial__footer">
-                                    <div class="testimonial__avatar">J</div>
-                                    <p class="testimonial__author">Julien, membre depuis 3 mois</p>
-                                </div>
-                            </div>
-                            <div class="testimonial testimonial--green">
-                                <div class="testimonial__quote">&ldquo;</div>
-                                <p class="testimonial__text">J'ai remplac&eacute; mon caf&eacute; et mes tartines par un th&eacute; d&eacute;tox et un smoothie prot&eacute;in&eacute;, et je ne me suis jamais senti aussi bien. Mon &eacute;nergie est stable toute la matin&eacute;e.</p>
-                                <div class="testimonial__footer">
-                                    <div class="testimonial__avatar">L</div>
-                                    <p class="testimonial__author">Laura, membre depuis 2 mois</p>
-                                </div>
+                    <!-- 3 témoignages empilés droite -->
+                    <div class="testimonials__stack">
+                        <div class="testimonial testimonial--pink">
+                            <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. J'ai perdu du poids, ma composition corporelle a chang&eacute; et j'ai tellement plus d'&eacute;nergie.</p>
+                            <div class="testimonial__footer">
+                                <div class="testimonial__avatar">C</div>
+                                <p class="testimonial__author">C&eacute;line, 50 visites</p>
                             </div>
                         </div>
-                        <div class="testimonials__nav">
-                            <button class="testimonials__arrow testimonials__arrow--prev" aria-label="Pr&eacute;c&eacute;dent">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-                            </button>
-                            <div class="testimonials__dots">
-                                <button class="testimonials__dot testimonials__dot--active" aria-label="T&eacute;moignage 1"></button>
-                                <button class="testimonials__dot" aria-label="T&eacute;moignage 2"></button>
-                                <button class="testimonials__dot" aria-label="T&eacute;moignage 3"></button>
+                        <div class="testimonial testimonial--orange">
+                            <p class="testimonial__text">Les coachs se soucient vraiment de ta progression. Ils savent exactement o&ugrave; j'en suis. Rien n'a eu cet impact avant.</p>
+                            <div class="testimonial__footer">
+                                <div class="testimonial__avatar">J</div>
+                                <p class="testimonial__author">Julien, 3 mois</p>
                             </div>
-                            <button class="testimonials__arrow testimonials__arrow--next" aria-label="Suivant">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                            </button>
                         </div>
-                    </div>
-
-                    <!-- Stat bas droite -->
-                    <div class="testimonials__stat-block">
-                        <span class="testimonials__stat-number">1200+</span>
-                        <p class="testimonials__stat-text">personnes satisfaites de notre accompagnement</p>
+                        <div class="testimonial testimonial--green">
+                            <p class="testimonial__text">Th&eacute; d&eacute;tox + smoothie chaque matin, je ne me suis jamais senti aussi bien. Mon &eacute;nergie est stable toute la journ&eacute;e.</p>
+                            <div class="testimonial__footer">
+                                <div class="testimonial__avatar">L</div>
+                                <p class="testimonial__author">Laura, 2 mois</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
