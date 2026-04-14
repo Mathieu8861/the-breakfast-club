@@ -537,9 +537,10 @@
 
 .testimonials__layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 24px;
+    grid-template-columns: 290px 1fr;
+    gap: 20px;
     margin-top: 32px;
+    max-width: 900px;
 }
 
 .testimonials__video {
