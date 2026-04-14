@@ -538,10 +538,9 @@
 .testimonials__grid-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
-    grid-template-rows: 1fr auto;
-    gap: 20px;
+    grid-template-rows: auto auto;
+    gap: 12px 20px;
     margin-top: 32px;
-    height: 500px;
 }
 
 /* Vidéo gauche — toute la hauteur */
@@ -550,6 +549,7 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: #000;
+    height: 480px;
 }
 
 .testimonials__video-player {
@@ -564,7 +564,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 8px;
 }
 
 .testimonials__track {
@@ -722,8 +721,8 @@
         grid-template-columns: 1fr;
     }
 
-    .testimonials__grid-layout {
-        height: 380px;
+    .testimonials__video {
+        height: 420px;
     }
 }
 
