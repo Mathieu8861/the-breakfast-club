@@ -115,10 +115,49 @@
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
+    // === TESTIMONIALS CAROUSEL ===
+    function initTestimonialsCarousel() {
+        var track = document.querySelector('.testimonials__track');
+        if (!track) return;
+
+        var slides = track.querySelectorAll('.testimonial');
+        var dots = document.querySelectorAll('.testimonials__dot');
+        var prevBtn = document.querySelector('.testimonials__arrow--prev');
+        var nextBtn = document.querySelector('.testimonials__arrow--next');
+        var current = 0;
+
+        function goTo(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+
+            slides.forEach(function(slide) {
+                slide.classList.remove('testimonial--active');
+            });
+            dots.forEach(function(dot) {
+                dot.classList.remove('testimonials__dot--active');
+            });
+
+            slides[index].classList.add('testimonial--active');
+            if (dots[index]) dots[index].classList.add('testimonials__dot--active');
+            current = index;
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+        dots.forEach(function(dot, i) {
+            dot.addEventListener('click', function() { goTo(i); });
+        });
+
+        // Auto-play every 6 seconds
+        setInterval(function() { goTo(current + 1); }, 6000);
+    }
+
     // === INIT ===
     handleScroll();
     initReveal();
     initSmoothScroll();
     initActiveNav();
+    initTestimonialsCarousel();
 
 })();

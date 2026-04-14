@@ -369,29 +369,54 @@
                 <h2 class="section__title section__title--center">Ce qu'ils en<br><span class="text-accent text-accent--yellow">disent.</span></h2>
                 <p class="section__subtitle section__subtitle--center">Les retours de nos membres sont notre plus grande fiert&eacute;. Voici ce que vivent au quotidien ceux qui ont rejoint le club.</p>
 
-                <div class="testimonials__grid">
-                    <div class="testimonial testimonial--pink">
-                        <div class="testimonial__quote">&ldquo;</div>
-                        <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. J'ai perdu du poids, ma composition corporelle a compl&egrave;tement chang&eacute; et j'ai tellement plus d'&eacute;nergie au quotidien. Le matin, j'ai h&acirc;te de me lever pour aller au club. C'est devenu bien plus qu'une habitude &mdash; c'est un mode de vie.</p>
-                        <div class="testimonial__footer">
-                            <div class="testimonial__avatar">C</div>
-                            <p class="testimonial__author">C&eacute;line, 50 visites</p>
-                        </div>
+                <div class="testimonials__split">
+                    <!-- Video à gauche -->
+                    <div class="testimonials__video">
+                        <video class="testimonials__video-player" controls playsinline preload="metadata" poster="">
+                            <source src="assets/temoignage-client.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="testimonial testimonial--orange">
-                        <div class="testimonial__quote">&ldquo;</div>
-                        <p class="testimonial__text">La communaut&eacute;, c'est ce qui me fait revenir chaque matin. Tu n'es jamais seul, et les coachs se soucient vraiment de ta progression. Ils savent exactement o&ugrave; j'en suis, ce qu'il faut ajuster. J'ai essay&eacute; beaucoup de choses avant, mais rien n'a eu cet impact.</p>
-                        <div class="testimonial__footer">
-                            <div class="testimonial__avatar">J</div>
-                            <p class="testimonial__author">Julien, membre depuis 3 mois</p>
+
+                    <!-- Carrousel à droite -->
+                    <div class="testimonials__carousel">
+                        <div class="testimonials__track">
+                            <div class="testimonial testimonial--active testimonial--pink">
+                                <div class="testimonial__quote">&ldquo;</div>
+                                <p class="testimonial__text">Apr&egrave;s 50 visites, les r&eacute;sultats sont incroyables. J'ai perdu du poids, ma composition corporelle a compl&egrave;tement chang&eacute; et j'ai tellement plus d'&eacute;nergie au quotidien. Le matin, j'ai h&acirc;te de me lever pour aller au club. C'est devenu bien plus qu'une habitude &mdash; c'est un mode de vie.</p>
+                                <div class="testimonial__footer">
+                                    <div class="testimonial__avatar">C</div>
+                                    <p class="testimonial__author">C&eacute;line, 50 visites</p>
+                                </div>
+                            </div>
+                            <div class="testimonial testimonial--orange">
+                                <div class="testimonial__quote">&ldquo;</div>
+                                <p class="testimonial__text">La communaut&eacute;, c'est ce qui me fait revenir chaque matin. Tu n'es jamais seul, et les coachs se soucient vraiment de ta progression. Ils savent exactement o&ugrave; j'en suis, ce qu'il faut ajuster. J'ai essay&eacute; beaucoup de choses avant, mais rien n'a eu cet impact.</p>
+                                <div class="testimonial__footer">
+                                    <div class="testimonial__avatar">J</div>
+                                    <p class="testimonial__author">Julien, membre depuis 3 mois</p>
+                                </div>
+                            </div>
+                            <div class="testimonial testimonial--green">
+                                <div class="testimonial__quote">&ldquo;</div>
+                                <p class="testimonial__text">J'ai remplac&eacute; mon caf&eacute; et mes tartines du matin par un th&eacute; d&eacute;tox et un smoothie prot&eacute;in&eacute;, et je ne me suis jamais senti aussi bien. Mon &eacute;nergie est stable toute la matin&eacute;e, je ne grignote plus et mes proches ont remarqu&eacute; le changement.</p>
+                                <div class="testimonial__footer">
+                                    <div class="testimonial__avatar">L</div>
+                                    <p class="testimonial__author">Laura, membre depuis 2 mois</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="testimonial testimonial--green">
-                        <div class="testimonial__quote">&ldquo;</div>
-                        <p class="testimonial__text">J'ai remplac&eacute; mon caf&eacute; et mes tartines du matin par un th&eacute; d&eacute;tox et un smoothie prot&eacute;in&eacute;, et je ne me suis jamais senti aussi bien. Mon &eacute;nergie est stable toute la matin&eacute;e, je ne grignote plus et mes proches ont remarqu&eacute; le changement.</p>
-                        <div class="testimonial__footer">
-                            <div class="testimonial__avatar">L</div>
-                            <p class="testimonial__author">Laura, membre depuis 2 mois</p>
+                        <div class="testimonials__nav">
+                            <button class="testimonials__arrow testimonials__arrow--prev" aria-label="Pr&eacute;c&eacute;dent">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                            </button>
+                            <div class="testimonials__dots">
+                                <button class="testimonials__dot testimonials__dot--active" aria-label="T&eacute;moignage 1"></button>
+                                <button class="testimonials__dot" aria-label="T&eacute;moignage 2"></button>
+                                <button class="testimonials__dot" aria-label="T&eacute;moignage 3"></button>
+                            </div>
+                            <button class="testimonials__arrow testimonials__arrow--next" aria-label="Suivant">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -552,7 +577,7 @@
                         </div>
                     </div>
                     <div class="contact__map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.5!2d4.35!3d50.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDQ4JzAuMCJOIDTCsDIxJzAuMCJF!5e0!3m2!1sfr!2sbe!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation The Breakfast Club"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.8!2d4.3445!3d50.7935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c4e3c5b1b1b1%3A0x1234567890abcdef!2s715+Chauss%C3%A9e+d'Alsemberg%2C+1180+Uccle!5e0!3m2!1sfr!2sbe!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation The Breakfast Club - 715 Chauss&eacute;e d'Alsemberg, Uccle"></iframe>
                     </div>
                 </div>
             </div>
