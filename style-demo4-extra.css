@@ -182,10 +182,11 @@
 }
 
 .step-card__title {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     margin-bottom: 12px;
 }
 
