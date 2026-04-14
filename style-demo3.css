@@ -297,7 +297,7 @@ ul {
    =========================== */
 .header {
     position: fixed;
-    top: 38px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -421,7 +421,7 @@ ul {
    HERO
    =========================== */
 .hero {
-    padding-top: 140px;
+    padding-top: 100px;
     padding-bottom: 60px;
     min-height: 100vh;
     background: var(--cream);
@@ -1776,7 +1776,7 @@ ul {
 
     /* Hero */
     .hero {
-        padding-top: 120px;
+        padding-top: 90px;
     }
 
     .hero__split {
@@ -1933,7 +1933,7 @@ ul {
     }
 
     .header {
-        top: 32px;
+        top: 0;
     }
 
     .btn {
@@ -1942,7 +1942,7 @@ ul {
     }
 
     .hero {
-        padding-top: 100px;
+        padding-top: 80px;
     }
 
     .hero__title {
