@@ -380,21 +380,68 @@
     opacity: 0.18;
 }
 
-/* Pricing card: warm orange glow behind */
-.pricing__card-wrapper {
-    display: contents;
+/* Pricing — 2 cards layout */
+.pricing {
+    display: block;
 }
 
-.pricing__card-wrapper .deco-behind--orange {
+.pricing__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.pricing__card-wrapper {
+    position: relative;
+    display: block;
+}
+
+.pricing__card-wrapper .deco-behind--orange,
+.pricing__card-wrapper .deco-behind--pink {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 110%;
     height: 110%;
-    background: radial-gradient(circle, rgba(255, 113, 0, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 0;
+}
+
+.pricing__card-wrapper .deco-behind--orange {
+    background: radial-gradient(circle, rgba(255, 113, 0, 0.08) 0%, transparent 70%);
+}
+
+.pricing__card-wrapper .deco-behind--pink {
+    background: radial-gradient(circle, rgba(255, 0, 122, 0.08) 0%, transparent 70%);
+}
+
+.pricing__card--featured {
+    border-color: var(--pink) !important;
+}
+
+.pricing__card--featured:hover {
+    box-shadow: 0 16px 40px rgba(255, 0, 122, 0.12);
+}
+
+.pricing__per {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-top: -20px;
+    margin-bottom: 28px;
+}
+
+.pricing__desc--highlight {
+    font-weight: 600;
+    color: var(--green);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .pricing__cards {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Hide decos on small screens */
