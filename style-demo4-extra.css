@@ -537,17 +537,17 @@
 
 .testimonials__split {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 40px;
+    grid-template-columns: 340px 1fr;
+    gap: 48px;
     align-items: center;
-    margin-top: 48px;
+    margin-top: 40px;
 }
 
 .testimonials__video {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 3 / 4;
     background: #000;
 }
 
@@ -565,7 +565,7 @@
 .testimonials__track {
     position: relative;
     overflow: hidden;
-    min-height: 320px;
+    min-height: 280px;
 }
 
 .testimonials__track .testimonial {
