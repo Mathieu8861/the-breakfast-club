@@ -842,6 +842,23 @@ body.popup-open {
     align-items: stretch;
 }
 
+.pricing__cards--three {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+}
+
+.pricing__cards--three .pricing__card {
+    padding: 40px 28px;
+}
+
+.pricing__cards--three .pricing__amount {
+    font-size: 3.8rem;
+}
+
+.pricing__cards--three .pricing__plan {
+    font-size: 1.4rem;
+}
+
 .pricing__card-wrapper {
     position: relative;
     display: flex;
@@ -1006,6 +1023,77 @@ body.popup-open {
     font-size: 1.1rem;
 }
 
+/* --- Discovery card (1st, cream/green intro offer) --- */
+.pricing__card-wrapper--discovery .pricing__card {
+    background: var(--cream);
+    border: 2px dashed rgba(135, 157, 130, 0.4);
+    box-shadow: 0 4px 20px rgba(135, 157, 130, 0.08);
+}
+
+.pricing__card-wrapper--discovery .pricing__card:hover {
+    border-color: var(--green);
+    border-style: solid;
+    box-shadow: 0 12px 35px rgba(135, 157, 130, 0.2);
+}
+
+.pricing__card--discovery::before {
+    background: linear-gradient(135deg, var(--green), #5a7a55) !important;
+    height: 4px;
+}
+
+.pricing__card--discovery .pricing__amount {
+    background: linear-gradient(135deg, var(--green), #5a7a55);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing__card--discovery .pricing__currency {
+    color: var(--green);
+}
+
+.pricing__card--discovery .pricing__features li::before {
+    background: linear-gradient(135deg, var(--green), #5a7a55);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 14.5l-3.5-3.5 1.4-1.4L8 11.7l5.6-5.6 1.4 1.4L8 14.5z' fill='white'/%3E%3C/svg%3E");
+    background-size: cover;
+}
+
+/* Green badge */
+.pricing__badge--green {
+    background: linear-gradient(135deg, var(--green), #5a7a55) !important;
+}
+
+/* Green saving tag */
+.pricing__saving--green {
+    background: rgba(135, 157, 130, 0.18) !important;
+    color: #5a7a55 !important;
+}
+
+/* --- Outline green button --- */
+.btn--outline-green {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+    background: transparent;
+    color: var(--green);
+    border: 2px solid var(--green);
+    cursor: pointer;
+}
+
+.btn--outline-green:hover {
+    background: var(--green);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(135, 157, 130, 0.3);
+}
+
 /* --- White button variant for dark card --- */
 .btn--white {
     display: inline-flex;
@@ -1028,6 +1116,24 @@ body.popup-open {
     background: var(--cream);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .pricing__cards--three {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pricing__cards--three .pricing__card--featured {
+        transform: scale(1);
+    }
+
+    .pricing__cards--three .pricing__card--featured:hover {
+        transform: translateY(-4px);
+    }
 }
 
 @media (max-width: 768px) {
