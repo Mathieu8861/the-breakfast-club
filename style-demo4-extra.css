@@ -876,13 +876,13 @@ body.popup-open {
 }
 
 /* --- Standard card (Carte 10) --- */
-.pricing__card-wrapper:first-child .pricing__card {
+.pricing__card-wrapper:nth-child(2) .pricing__card {
     background: var(--white);
     border: 2px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
-.pricing__card-wrapper:first-child .pricing__card:hover {
+.pricing__card-wrapper:nth-child(2) .pricing__card:hover {
     border-color: var(--orange);
     box-shadow: 0 12px 40px rgba(255, 113, 0, 0.12);
 }
