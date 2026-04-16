@@ -7,6 +7,29 @@
 /* ===========================
    HERO OBJECTIVES (clickable buttons)
    =========================== */
+
+/* Reduce split min-height so objectives block fits inside viewport */
+.hero {
+    min-height: auto !important;
+    padding-bottom: 50px !important;
+}
+
+.hero__split {
+    min-height: auto !important;
+}
+
+.hero__objectives-block {
+    margin: 36px auto 0;
+    max-width: var(--container-width);
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
 .hero__objectives-label {
     font-family: var(--font-heading);
     font-size: 0.78rem;
@@ -14,24 +37,25 @@
     color: var(--gray-600);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.hero__objectives-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.08);
+    margin-bottom: 14px;
 }
 
 .hero__objectives {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 14px;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hero__objectives {
+        flex-wrap: wrap;
+    }
+
+    .hero__objectives-block {
+        padding: 0 16px;
+    }
 }
 
 .objective-btn {
