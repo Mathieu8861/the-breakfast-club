@@ -1025,14 +1025,13 @@ body.popup-open {
 
 /* --- Discovery card (1st, cream/green intro offer) --- */
 .pricing__card-wrapper--discovery .pricing__card {
-    background: var(--cream);
-    border: 2px dashed rgba(135, 157, 130, 0.4);
-    box-shadow: 0 4px 20px rgba(135, 157, 130, 0.08);
+    background: var(--white);
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .pricing__card-wrapper--discovery .pricing__card:hover {
     border-color: var(--green);
-    border-style: solid;
     box-shadow: 0 12px 35px rgba(135, 157, 130, 0.2);
 }
 
