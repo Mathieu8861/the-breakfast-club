@@ -5,6 +5,261 @@
    ========================================================================== */
 
 /* ===========================
+   POPUP — Welcome offer
+   =========================== */
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.popup.popup--open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    cursor: pointer;
+}
+
+.popup__card {
+    position: relative;
+    background: var(--dark);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateY(40px) scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.popup.popup--open .popup__card {
+    transform: translateY(0) scale(1);
+}
+
+/* Gradient top border */
+.popup__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--gradient-cta);
+}
+
+/* Dot pattern decorative — top right */
+.popup__card::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+    background-size: 10px 10px;
+    pointer-events: none;
+}
+
+/* Glow effect behind card */
+.popup__glow {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 120px;
+    background: var(--gradient-cta);
+    filter: blur(40px);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.popup__content {
+    position: relative;
+    z-index: 2;
+}
+
+.popup__close {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 3;
+}
+
+.popup__close:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: rotate(90deg);
+}
+
+.popup__close svg {
+    width: 18px;
+    height: 18px;
+}
+
+.popup__badge {
+    display: inline-block;
+    padding: 6px 18px;
+    background: var(--gradient-cta);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(255, 113, 0, 0.3);
+}
+
+.popup__title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.popup__title-accent {
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.popup__subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup__deposit {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 113, 0, 0.1);
+    border: 1px solid rgba(255, 113, 0, 0.2);
+    padding: 14px 18px;
+    border-radius: var(--radius-md);
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.popup__deposit-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: var(--gradient-cta);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.popup__deposit-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.popup__deposit-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.popup__deposit-text strong {
+    color: var(--peach);
+    font-weight: 700;
+}
+
+.popup__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup__dismiss {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s ease;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.popup__dismiss:hover {
+    color: var(--white);
+}
+
+/* No scroll on body when popup open */
+body.popup-open {
+    overflow: hidden;
+}
+
+@media (max-width: 500px) {
+    .popup__card {
+        padding: 40px 24px 28px;
+    }
+
+    .popup__title {
+        font-size: 1.7rem;
+    }
+
+    .popup__subtitle {
+        font-size: 0.88rem;
+    }
+
+    .popup__deposit {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .popup__deposit-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===========================
    HERO OBJECTIVES (clickable buttons)
    =========================== */
 

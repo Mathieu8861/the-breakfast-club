@@ -187,6 +187,61 @@
         });
     }
 
+    // === WELCOME POPUP ===
+    function initWelcomePopup() {
+        var popup = document.getElementById('welcome-popup');
+        if (!popup) return;
+
+        var STORAGE_KEY = 'bfc_popup_seen';
+        var DELAY_MS = 3500;
+
+        // Don't show if user has already seen it this session
+        try {
+            if (sessionStorage.getItem(STORAGE_KEY) === '1') return;
+        } catch (e) {}
+
+        function openPopup() {
+            popup.classList.add('popup--open');
+            popup.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('popup-open');
+        }
+
+        function closePopup() {
+            popup.classList.remove('popup--open');
+            popup.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('popup-open');
+            try {
+                sessionStorage.setItem(STORAGE_KEY, '1');
+            } catch (e) {}
+        }
+
+        // Close triggers
+        popup.querySelectorAll('[data-popup-close]').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                closePopup();
+            });
+        });
+
+        // CTA click: close popup + scroll to booking (href handles scroll)
+        var cta = popup.querySelector('[data-popup-cta]');
+        if (cta) {
+            cta.addEventListener('click', function() {
+                closePopup();
+            });
+        }
+
+        // Escape key to close
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popup.classList.contains('popup--open')) {
+                closePopup();
+            }
+        });
+
+        // Auto-open after delay
+        setTimeout(openPopup, DELAY_MS);
+    }
+
     // === INIT ===
     handleScroll();
     initReveal();
@@ -194,5 +249,6 @@
     initActiveNav();
     initTestimonialsCarousel();
     initObjectiveButtons();
+    initWelcomePopup();
 
 })();

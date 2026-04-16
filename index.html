@@ -652,6 +652,40 @@
         </div>
     </footer>
 
+    <!-- ==================== POPUP DECOUVERTE ==================== -->
+    <div class="popup" id="welcome-popup" aria-hidden="true">
+        <div class="popup__overlay" data-popup-close></div>
+        <div class="popup__card" role="dialog" aria-labelledby="popup-title" aria-modal="true">
+            <button class="popup__close" data-popup-close aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div class="popup__glow"></div>
+
+            <div class="popup__content">
+                <span class="popup__badge">Offre de lancement</span>
+                <h2 class="popup__title" id="popup-title">Premi&egrave;re s&eacute;ance d&eacute;couverte<br><span class="popup__title-accent">offerte</span></h2>
+                <p class="popup__subtitle">Viens tester le concept complet &mdash; Aloevera + Th&eacute; d&eacute;tox + Smoothie prot&eacute;in&eacute; &mdash; accompagn&eacute; par un coach.</p>
+
+                <div class="popup__deposit">
+                    <div class="popup__deposit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="popup__deposit-text"><strong>20&euro; d'acompte</strong> &agrave; la r&eacute;servation &mdash; int&eacute;gralement d&eacute;duit de ton futur abonnement.</p>
+                </div>
+
+                <div class="popup__actions">
+                    <a href="#booking" class="btn btn--gradient btn--full" data-popup-cta>Je r&eacute;serve ma s&eacute;ance</a>
+                    <button class="popup__dismiss" data-popup-close>Plus tard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>
