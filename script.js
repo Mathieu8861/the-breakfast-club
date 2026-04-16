@@ -153,11 +153,46 @@
         setInterval(function() { goTo(current + 1); }, 6000);
     }
 
+    // === OBJECTIVE BUTTONS ===
+    function initObjectiveButtons() {
+        var buttons = document.querySelectorAll('.objective-btn');
+        var objectiveWrap = document.getElementById('booking-objective');
+        var objectiveValue = document.getElementById('booking-objective-value');
+        var bookingCta = document.getElementById('booking-cta');
+
+        if (!buttons.length || !objectiveWrap || !bookingCta) return;
+
+        var baseMsg = 'Bonjour ! Je souhaite r\u00e9server un cr\u00e9neau au Breakfast Club';
+
+        buttons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var obj = btn.getAttribute('data-objective');
+                if (!obj) return;
+
+                // Decode HTML entities (e.g. &eacute;)
+                var tmp = document.createElement('textarea');
+                tmp.innerHTML = obj;
+                var decoded = tmp.value;
+
+                objectiveValue.textContent = decoded;
+                objectiveWrap.removeAttribute('hidden');
+
+                var msg = baseMsg + '. Mon objectif : ' + decoded + ' \ud83c\udf53';
+                bookingCta.href = 'https://wa.me/32470120300?text=' + encodeURIComponent(msg);
+
+                // Mark button as active, clear others
+                buttons.forEach(function(b) { b.classList.remove('objective-btn--active'); });
+                btn.classList.add('objective-btn--active');
+            });
+        });
+    }
+
     // === INIT ===
     handleScroll();
     initReveal();
     initSmoothScroll();
     initActiveNav();
     initTestimonialsCarousel();
+    initObjectiveButtons();
 
 })();

@@ -5,6 +5,173 @@
    ========================================================================== */
 
 /* ===========================
+   HERO OBJECTIVES (clickable buttons)
+   =========================== */
+.hero__objectives-label {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero__objectives-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.hero__objectives {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+}
+
+.objective-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background: var(--white);
+    transition: var(--transition-base);
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.objective-btn__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.objective-btn:hover {
+    transform: translateY(-3px);
+}
+
+.objective-btn:hover .objective-btn__icon {
+    transform: scale(1.15) rotate(8deg);
+}
+
+.objective-btn--orange {
+    color: var(--orange);
+    border-color: rgba(255, 113, 0, 0.25);
+}
+
+.objective-btn--orange:hover {
+    background: var(--orange);
+    color: var(--white);
+    border-color: var(--orange);
+    box-shadow: 0 8px 20px rgba(255, 113, 0, 0.3);
+}
+
+.objective-btn--pink {
+    color: var(--pink);
+    border-color: rgba(255, 0, 122, 0.25);
+}
+
+.objective-btn--pink:hover {
+    background: var(--pink);
+    color: var(--white);
+    border-color: var(--pink);
+    box-shadow: 0 8px 20px rgba(255, 0, 122, 0.3);
+}
+
+.objective-btn--green {
+    color: var(--green);
+    border-color: rgba(135, 157, 130, 0.4);
+}
+
+.objective-btn--green:hover {
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+    box-shadow: 0 8px 20px rgba(135, 157, 130, 0.35);
+}
+
+/* Active state - when selected */
+.objective-btn--orange.objective-btn--active {
+    background: var(--orange);
+    color: var(--white);
+    border-color: var(--orange);
+    box-shadow: 0 8px 20px rgba(255, 113, 0, 0.3);
+}
+
+.objective-btn--pink.objective-btn--active {
+    background: var(--pink);
+    color: var(--white);
+    border-color: var(--pink);
+    box-shadow: 0 8px 20px rgba(255, 0, 122, 0.3);
+}
+
+.objective-btn--green.objective-btn--active {
+    background: var(--green);
+    color: var(--white);
+    border-color: var(--green);
+    box-shadow: 0 8px 20px rgba(135, 157, 130, 0.35);
+}
+
+/* ===========================
+   BOOKING — Objective display
+   =========================== */
+.booking__objective {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 2px solid var(--orange);
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    margin: 12px auto 8px;
+    box-shadow: 0 4px 20px rgba(255, 113, 0, 0.15);
+    animation: fadeInUp 0.5s ease;
+}
+
+.booking__objective[hidden] {
+    display: none;
+}
+
+.booking__objective-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.booking__objective-value {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--orange);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
    HERO STATS
    =========================== */
 .hero__stats {

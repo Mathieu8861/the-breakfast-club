@@ -69,7 +69,7 @@
                         <img src="assets/logo-black-hero.png" alt="The Breakfast Club" class="hero__title-logo">
                     </h1>
                     <p class="hero__subtitle">Deviens la meilleure version de toi-m&ecirc;me</p>
-                    <p class="hero__desc">Un centre de remise en forme et de nutrition au c&oelig;ur d'Uccle. Perte de poids, affinement, &eacute;limination de la masse grasse, gain de vitalit&eacute;, prise de masse musculaire, plus d'&eacute;nergie &mdash; on t'accompagne chaque matin pour atteindre tes objectifs.</p>
+                    <p class="hero__desc">Un centre de remise en forme et de nutrition au c&oelig;ur d'Uccle. On t'accompagne chaque matin pour atteindre tes objectifs. Quel est le tien ?</p>
                     <div class="hero__stats">
                         <div class="hero__stat">
                             <span class="hero__stat-number">600+</span>
@@ -84,9 +84,28 @@
                             <span class="hero__stat-label">10 visites</span>
                         </div>
                     </div>
-                    <div class="hero__actions">
-                        <a href="#concept" class="btn btn--gradient">D&eacute;couvrir le concept</a>
-                        <a href="#contact" class="btn btn--outline-dark">Venir au club</a>
+                    <p class="hero__objectives-label">Choisis ton objectif</p>
+                    <div class="hero__objectives">
+                        <a href="#booking" class="objective-btn objective-btn--orange" data-objective="Perte de poids">
+                            <svg class="objective-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span class="objective-btn__label">Perte de poids</span>
+                        </a>
+                        <a href="#booking" class="objective-btn objective-btn--pink" data-objective="Prise de masse musculaire">
+                            <svg class="objective-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.5 6.5L3 3M17.5 17.5L21 21M17.5 6.5L21 3M6.5 17.5L3 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 8l2-2h4l2 2v8l-2 2h-4l-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="objective-btn__label">Prise de masse musculaire</span>
+                        </a>
+                        <a href="#booking" class="objective-btn objective-btn--green" data-objective="Gain d'&eacute;nergie">
+                            <svg class="objective-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L4.5 13.5h6L11 22l8.5-11.5h-6L13 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="objective-btn__label">Gain d'&eacute;nergie</span>
+                        </a>
                     </div>
                 </div>
                 <div class="hero__right">
@@ -498,11 +517,15 @@
         </section>
 
         <!-- ==================== BOOKING ==================== -->
-        <section class="section section--booking">
+        <section class="section section--booking" id="booking">
             <div class="container">
                 <div class="booking">
                     <h2 class="section__title section__title--center">R&eacute;serve ton <span class="text-accent text-accent--pink">cr&eacute;neau.</span></h2>
-                    <p class="booking__desc">Chaque matin, on accueille jusqu'&agrave; 10 personnes par cr&eacute;neau d'1 heure avec un coach d&eacute;di&eacute;. Ce format intimiste nous permet de t'offrir un suivi de qualit&eacute; et une attention personnalis&eacute;e. R&eacute;serve ta place pour &ecirc;tre s&ucirc;r d'avoir ton cr&eacute;neau.</p>
+                    <p class="booking__desc" id="booking-desc">Chaque matin, on accueille jusqu'&agrave; 10 personnes par cr&eacute;neau d'1 heure avec un coach d&eacute;di&eacute;. Ce format intimiste nous permet de t'offrir un suivi de qualit&eacute; et une attention personnalis&eacute;e. R&eacute;serve ta place pour &ecirc;tre s&ucirc;r d'avoir ton cr&eacute;neau.</p>
+                    <div class="booking__objective" id="booking-objective" hidden>
+                        <span class="booking__objective-label">Ton objectif :</span>
+                        <span class="booking__objective-value" id="booking-objective-value"></span>
+                    </div>
                     <div class="booking__slots">
                         <div class="booking__slot">
                             <span class="booking__time">6:30 - 7:30</span>
@@ -521,7 +544,7 @@
                             <span class="booking__status">Disponible</span>
                         </div>
                     </div>
-                    <a href="#contact" class="btn btn--gradient">R&eacute;server via WhatsApp</a>
+                    <a href="https://wa.me/32470120300?text=Bonjour%20!%20Je%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20au%20Breakfast%20Club%20%F0%9F%8D%93" target="_blank" rel="noopener" class="btn btn--gradient" id="booking-cta">R&eacute;server via WhatsApp</a>
                 </div>
             </div>
         </section>
