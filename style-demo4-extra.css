@@ -834,6 +834,12 @@ body.popup-open {
     display: none !important;
 }
 
+/* Subtitle full-width in results section */
+.section--results .section__subtitle {
+    max-width: none;
+    margin-top: 16px;
+}
+
 .results__carousel {
     position: relative;
     margin-top: 48px;
