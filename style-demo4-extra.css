@@ -947,24 +947,22 @@ body.popup-open {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--white);
-    border: 2px solid rgba(0, 0, 0, 0.08);
-    color: var(--dark);
+    background: var(--gradient-cta);
+    border: none;
+    color: var(--white);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 5;
     transition: var(--transition-base);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(255, 113, 0, 0.35);
 }
 
 .results__arrow:hover {
-    background: var(--gradient-cta);
-    color: var(--white);
-    border-color: transparent;
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 8px 24px rgba(255, 113, 0, 0.3);
+    transform: translateY(-50%) scale(1.12);
+    box-shadow: 0 10px 28px rgba(255, 0, 122, 0.45);
+    filter: brightness(1.08);
 }
 
 .results__arrow svg {
