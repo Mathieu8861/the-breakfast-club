@@ -238,6 +238,45 @@
         });
     }
 
+    // === RESULTS CAROUSEL (before/after) ===
+    function initResultsCarousel() {
+        var carousel = document.getElementById('results-carousel');
+        if (!carousel) return;
+
+        var track = carousel.querySelector('.results__track');
+        var prev = carousel.querySelector('.results__arrow--prev');
+        var next = carousel.querySelector('.results__arrow--next');
+        if (!track || !prev || !next) return;
+
+        function getScrollAmount() {
+            var card = track.querySelector('.result-card');
+            if (!card) return 320;
+            var gap = 20;
+            return card.offsetWidth + gap;
+        }
+
+        prev.addEventListener('click', function() {
+            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+
+        next.addEventListener('click', function() {
+            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+
+        // Hide arrows when at start/end
+        function updateArrows() {
+            var max = track.scrollWidth - track.clientWidth;
+            prev.style.opacity = track.scrollLeft <= 2 ? '0.4' : '1';
+            prev.style.pointerEvents = track.scrollLeft <= 2 ? 'none' : 'auto';
+            next.style.opacity = track.scrollLeft >= max - 2 ? '0.4' : '1';
+            next.style.pointerEvents = track.scrollLeft >= max - 2 ? 'none' : 'auto';
+        }
+
+        track.addEventListener('scroll', updateArrows);
+        window.addEventListener('resize', updateArrows);
+        setTimeout(updateArrows, 100);
+    }
+
     // === WELCOME POPUP ===
     function initWelcomePopup() {
         var popup = document.getElementById('welcome-popup');
@@ -303,5 +342,6 @@
     initWelcomePopup();
     initPixelCheckoutTracking();
     initPixelContactTracking();
+    initResultsCarousel();
 
 })();

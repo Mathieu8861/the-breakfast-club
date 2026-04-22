@@ -828,19 +828,126 @@ body.popup-open {
 }
 
 /* ===========================
-   RESULTS / BEFORE-AFTER — 6 images grid
-   Override base rule that centered the last card (designed for 3 images)
+   RESULTS / BEFORE-AFTER — Carousel (horizontal scroll)
    =========================== */
-.results__grid .result-card:last-child {
-    grid-column: auto !important;
-    max-width: none !important;
-    justify-self: stretch !important;
+.results__grid {
+    display: none !important;
 }
 
-/* Reveal cascade for all 6 cards */
-.result-card.reveal:nth-child(4) { transition-delay: 0.45s; }
-.result-card.reveal:nth-child(5) { transition-delay: 0.6s; }
-.result-card.reveal:nth-child(6) { transition-delay: 0.75s; }
+.results__carousel {
+    position: relative;
+    margin-top: 48px;
+}
+
+.results__track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 4px 0 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--orange) transparent;
+}
+
+.results__track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.results__track::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.results__track::-webkit-scrollbar-thumb {
+    background: var(--gradient-cta);
+    border-radius: 10px;
+}
+
+.results__track .result-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+    scroll-snap-align: start;
+    max-width: calc((100% - 40px) / 3);
+}
+
+.results__track .result-card__img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Arrow navigation */
+.results__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: var(--transition-base);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.results__arrow:hover {
+    background: var(--gradient-cta);
+    color: var(--white);
+    border-color: transparent;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 8px 24px rgba(255, 113, 0, 0.3);
+}
+
+.results__arrow svg {
+    width: 22px;
+    height: 22px;
+}
+
+.results__arrow--prev {
+    left: -10px;
+}
+
+.results__arrow--next {
+    right: -10px;
+}
+
+@media (max-width: 1024px) {
+    .results__track .result-card {
+        flex: 0 0 calc((100% - 20px) / 2);
+        max-width: calc((100% - 20px) / 2);
+    }
+
+    .results__track .result-card__img {
+        height: 340px;
+    }
+
+    .results__arrow--prev { left: 4px; }
+    .results__arrow--next { right: 4px; }
+}
+
+@media (max-width: 640px) {
+    .results__track .result-card {
+        flex: 0 0 80%;
+        max-width: 80%;
+    }
+
+    .results__track .result-card__img {
+        height: 320px;
+    }
+
+    .results__arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
 
 /* ===========================
    PRICING — 2 cards layout (redesigned)
