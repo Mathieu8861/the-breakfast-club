@@ -525,7 +525,6 @@ body.popup-open {
     padding: 20px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    justify-content: center;
 }
 
 .hero__stat {
