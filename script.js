@@ -183,6 +183,57 @@
                 // Mark button as active, clear others
                 buttons.forEach(function(b) { b.classList.remove('objective-btn--active'); });
                 btn.classList.add('objective-btn--active');
+
+                // Meta Pixel tracking
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: 'Objective selected',
+                        content_category: decoded
+                    });
+                }
+            });
+        });
+    }
+
+    // === META PIXEL — TRACK SUMUP PAYMENT CLICKS ===
+    function initPixelCheckoutTracking() {
+        if (typeof fbq !== 'function') return;
+
+        var mapping = {
+            'QI6QM8AY': { name: 'S\u00e9ance d\u00e9couverte', amount: 20 },
+            'Q26EG5HV': { name: 'Carte 10 visites', amount: 95 },
+            'Q4UOP0RB': { name: 'Carte 30 visites', amount: 249 }
+        };
+
+        var links = document.querySelectorAll('a[href*="pay.sumup.com"]');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var href = link.getAttribute('href') || '';
+                var match = href.match(/pay\.sumup\.com\/b2c\/([A-Z0-9]+)/);
+                if (!match) return;
+                var code = match[1];
+                var info = mapping[code];
+                if (!info) return;
+
+                fbq('track', 'InitiateCheckout', {
+                    content_name: info.name,
+                    value: info.amount,
+                    currency: 'EUR'
+                });
+            });
+        });
+    }
+
+    // === META PIXEL — TRACK WHATSAPP / CONTACT ===
+    function initPixelContactTracking() {
+        if (typeof fbq !== 'function') return;
+
+        var links = document.querySelectorAll('a[href*="wa.me/"]');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                fbq('track', 'Contact', {
+                    method: 'whatsapp'
+                });
             });
         });
     }
@@ -250,5 +301,7 @@
     initTestimonialsCarousel();
     initObjectiveButtons();
     initWelcomePopup();
+    initPixelCheckoutTracking();
+    initPixelContactTracking();
 
 })();

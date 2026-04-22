@@ -1,0 +1,12 @@
+# Environment variables — NEVER commit real secrets
+.env
+.env.local
+.env.production
+
+# Editor / OS
+.claude/
+.DS_Store
+Thumbs.db
+
+# Node modules (if ever added)
+node_modules/

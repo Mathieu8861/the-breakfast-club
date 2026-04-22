@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Merci pour ton inscription - The Breakfast Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-green.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style-demo3.css">
+    <link rel="stylesheet" href="style-demo4-extra.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1582702526170106');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1582702526170106&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        body {
+            background: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .thanks {
+            max-width: 600px;
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .thanks::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-cta);
+        }
+        .thanks__icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: var(--gradient-cta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(255, 113, 0, 0.3);
+        }
+        .thanks__icon svg { width: 40px; height: 40px; }
+        .thanks__title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+        .thanks__title-accent {
+            background: var(--gradient-cta);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .thanks__subtitle {
+            font-family: var(--font-heading);
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .thanks__product {
+            display: inline-block;
+            background: rgba(255, 113, 0, 0.1);
+            color: var(--orange);
+            padding: 10px 22px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+        .thanks__next {
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+        .thanks__next-title {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray-600);
+            margin-bottom: 12px;
+        }
+        .thanks__next ul { list-style: none; padding: 0; margin: 0; }
+        .thanks__next li {
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .thanks__next li::before {
+            content: '✓';
+            background: var(--gradient-cta);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        .thanks__actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="thanks">
+        <div class="thanks__icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <h1 class="thanks__title">Paiement <span class="thanks__title-accent">confirmé.</span></h1>
+        <p class="thanks__subtitle">Merci pour ta confiance ! Ton inscription au Breakfast Club est enregistrée.</p>
+
+        <div class="thanks__product" id="product-name">Ta formule</div>
+
+        <div class="thanks__next">
+            <p class="thanks__next-title">Prochaines étapes</p>
+            <ul>
+                <li>Tu vas recevoir un email de confirmation</li>
+                <li>Réserve ton premier créneau (6h30 → 10h30)</li>
+                <li>Viens au club 60 rue de l'Église à Uccle</li>
+                <li>On t'accueille avec ton thé détox & ta boisson hydratante</li>
+            </ul>
+        </div>
+
+        <div class="thanks__actions">
+            <a href="https://wa.me/32470120300?text=Bonjour%20!%20Je%20viens%20de%20r%C3%A9server%20ma%20s%C3%A9ance%20%F0%9F%8D%93" target="_blank" rel="noopener" class="btn btn--gradient">Réserver mon créneau</a>
+            <a href="/" class="btn btn--outline-dark">Retour au site</a>
+        </div>
+    </div>
+
+    <script>
+        // Read URL params (?product=X&amount=Y) and fire Purchase event
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var product = params.get('product') || 'formule';
+            var amount = parseFloat(params.get('amount')) || 0;
+
+            var productLabels = {
+                'decouverte': 'Séance découverte — 20€',
+                '10visites': 'Carte 10 visites — 95€',
+                '30visites': 'Carte 30 visites — 249€'
+            };
+
+            // Display product name
+            var nameEl = document.getElementById('product-name');
+            if (nameEl && productLabels[product]) {
+                nameEl.textContent = productLabels[product];
+            }
+
+            // Fire Meta Pixel Purchase event
+            if (typeof fbq === 'function' && amount > 0) {
+                fbq('track', 'Purchase', {
+                    value: amount,
+                    currency: 'EUR',
+                    content_name: productLabels[product] || product
+                });
+
+                // Also notify Conversion API backend (server-side tracking)
+                try {
+                    fetch('/api/meta-capi', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            event_name: 'Purchase',
+                            event_source_url: window.location.href,
+                            user_agent: navigator.userAgent,
+                            value: amount,
+                            currency: 'EUR',
+                            content_name: productLabels[product] || product
+                        })
+                    }).catch(function() {});
+                } catch (e) {}
+            }
+        })();
+    </script>
+</body>
+</html>
