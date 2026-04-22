@@ -828,6 +828,21 @@ body.popup-open {
 }
 
 /* ===========================
+   RESULTS / BEFORE-AFTER — 6 images grid
+   Override base rule that centered the last card (designed for 3 images)
+   =========================== */
+.results__grid .result-card:last-child {
+    grid-column: auto !important;
+    max-width: none !important;
+    justify-self: stretch !important;
+}
+
+/* Reveal cascade for all 6 cards */
+.result-card.reveal:nth-child(4) { transition-delay: 0.45s; }
+.result-card.reveal:nth-child(5) { transition-delay: 0.6s; }
+.result-card.reveal:nth-child(6) { transition-delay: 0.75s; }
+
+/* ===========================
    PRICING — 2 cards layout (redesigned)
    =========================== */
 .pricing {
