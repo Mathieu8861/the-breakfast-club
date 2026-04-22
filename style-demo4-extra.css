@@ -909,26 +909,21 @@ body.popup-open {
     display: flex;
     gap: 20px;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 4px 0 16px;
+    padding: 4px 0;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--orange) transparent;
+    /* Hide scrollbar — Firefox + IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
+/* Hide scrollbar — Chrome, Safari, Opera */
 .results__track::-webkit-scrollbar {
-    height: 6px;
-}
-
-.results__track::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-}
-
-.results__track::-webkit-scrollbar-thumb {
-    background: var(--gradient-cta);
-    border-radius: 10px;
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 .results__track .result-card {
