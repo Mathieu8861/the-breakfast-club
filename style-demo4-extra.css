@@ -306,24 +306,34 @@ body.popup-open {
 @media (max-width: 768px) {
     .hero__objectives-block {
         padding: 0 16px;
+        margin-top: 18px;
+    }
+
+    .hero__objectives-label {
+        margin-bottom: 10px;
     }
 
     /* 2-line grid on mobile: Perte + Gain on row 1, Prise de masse (full) on row 2 */
     .hero__objectives {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
         grid-auto-flow: dense;
     }
 
     .hero__objectives .objective-btn {
         justify-content: center;
-        padding: 10px 14px;
+        padding: 9px 12px;
         font-size: 0.82rem;
     }
 
     .hero__objectives .objective-btn:nth-child(2) {
         grid-column: 1 / -1;
+    }
+
+    /* Reduce hero bottom padding on mobile */
+    .hero {
+        padding-bottom: 20px !important;
     }
 
     /* Mobile hero: text + stats FIRST, then video, then objectives */
