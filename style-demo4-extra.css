@@ -288,14 +288,9 @@ body.popup-open {
    HERO OBJECTIVES (clickable buttons)
    =========================== */
 
-/* Reduce split min-height so objectives block fits inside viewport */
+/* Ensure hero has room for the objectives block below the split */
 .hero {
-    min-height: auto !important;
     padding-bottom: 50px !important;
-}
-
-.hero__split {
-    min-height: auto !important;
 }
 
 .hero__objectives-block {
