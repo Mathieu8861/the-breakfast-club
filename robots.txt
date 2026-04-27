@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /merci.html
+
+Sitemap: https://www.thebreakfast-club.com/sitemap.xml
