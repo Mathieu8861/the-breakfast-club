@@ -99,7 +99,7 @@ async function sendPurchaseToMeta(tx, productName, enrichment) {
         event_name: 'Purchase',
         event_time: eventTime,
         event_id: `sumup_${tx.id || tx.transaction_id}`, // dedup with browser-side Pixel
-        event_source_url: 'https://the-breakfast-club.vercel.app/',
+        event_source_url: 'https://www.thebreakfast-club.com/',
         action_source: 'website',
         user_data: userData,
         custom_data: {

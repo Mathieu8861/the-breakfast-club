@@ -94,7 +94,7 @@ async function sendMetaPurchase({ amount, currency, productName, email, phone, e
         event_name: 'Purchase',
         event_time: Math.floor(Date.now() / 1000),
         event_id: eventId, // For deduplication with browser-side Pixel
-        event_source_url: 'https://the-breakfast-club.vercel.app/',
+        event_source_url: 'https://www.thebreakfast-club.com/',
         action_source: 'website',
         user_data: userData,
         custom_data: {
