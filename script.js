@@ -243,15 +243,29 @@
         var btn = document.getElementById('discovery-book-cta');
         if (!btn) return;
 
+        var SUMUP_DISCOVERY_URL = 'https://pay.sumup.com/b2c/QI6QM8AY';
+
         btn.addEventListener('click', function(e) {
-            // If Cal.com SDK loaded, open modal with redirect to SumUp after booking
+            // If Cal.com SDK loaded, open modal
             if (window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan']) {
                 e.preventDefault();
                 Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
                     calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
                     config: {
                         layout: 'month_view',
-                        redirectUrl: 'https://pay.sumup.com/b2c/QI6QM8AY'
+                        successRedirectUrl: SUMUP_DISCOVERY_URL,
+                        redirectUrl: SUMUP_DISCOVERY_URL
+                    }
+                });
+
+                // Listen to Cal.com booking_successful event as fallback
+                Cal('on', {
+                    action: 'bookingSuccessful',
+                    callback: function() {
+                        // Small delay to let Cal show its confirmation, then redirect
+                        setTimeout(function() {
+                            window.location.href = SUMUP_DISCOVERY_URL;
+                        }, 1500);
                     }
                 });
 
@@ -264,7 +278,6 @@
                     });
                 }
             }
-            // If Cal.com hasn't loaded yet, fall back to scrolling to #booking section (default href behavior)
         });
     }
 
