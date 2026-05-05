@@ -238,6 +238,36 @@
         });
     }
 
+    // === DISCOVERY BOOKING FLOW (Cal.com modal -> SumUp 20€) ===
+    function initDiscoveryBookingFlow() {
+        var btn = document.getElementById('discovery-book-cta');
+        if (!btn) return;
+
+        btn.addEventListener('click', function(e) {
+            // If Cal.com SDK loaded, open modal with redirect to SumUp after booking
+            if (window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan']) {
+                e.preventDefault();
+                Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
+                    calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
+                    config: {
+                        layout: 'month_view',
+                        redirectUrl: 'https://pay.sumup.com/b2c/QI6QM8AY'
+                    }
+                });
+
+                // Track Lead event on Meta Pixel
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: 'Discovery booking initiated',
+                        value: 20,
+                        currency: 'EUR'
+                    });
+                }
+            }
+            // If Cal.com hasn't loaded yet, fall back to scrolling to #booking section (default href behavior)
+        });
+    }
+
     // === RESULTS CAROUSEL (before/after) ===
     function initResultsCarousel() {
         var carousel = document.getElementById('results-carousel');
@@ -343,5 +373,6 @@
     initPixelCheckoutTracking();
     initPixelContactTracking();
     initResultsCarousel();
+    initDiscoveryBookingFlow();
 
 })();
