@@ -670,30 +670,32 @@
             <div class="container">
                 <div class="booking">
                     <h2 class="section__title section__title--center">R&eacute;serve ton <span class="text-accent text-accent--pink">cr&eacute;neau.</span></h2>
-                    <p class="booking__desc" id="booking-desc">Chaque matin, on accueille jusqu'&agrave; 10 personnes par cr&eacute;neau d'1 heure avec un coach d&eacute;di&eacute;. Ce format intimiste nous permet de t'offrir un suivi de qualit&eacute; et une attention personnalis&eacute;e. R&eacute;serve ta place pour &ecirc;tre s&ucirc;r d'avoir ton cr&eacute;neau.</p>
+                    <p class="booking__desc" id="booking-desc">Chaque matin de 7h &agrave; 10h30, on t'accueille pour une s&eacute;ance d'1 heure avec un coach d&eacute;di&eacute;. Tu peux venir seul&middot;e ou accompagn&eacute;&middot;e d'une personne de ton choix. R&eacute;serve ton cr&eacute;neau directement ci-dessous.</p>
                     <div class="booking__objective" id="booking-objective" hidden>
                         <span class="booking__objective-label">Ton objectif :</span>
                         <span class="booking__objective-value" id="booking-objective-value"></span>
                     </div>
-                    <div class="booking__slots">
-                        <div class="booking__slot">
-                            <span class="booking__time">6:30 - 7:30</span>
-                            <span class="booking__status">Disponible</span>
-                        </div>
-                        <div class="booking__slot">
-                            <span class="booking__time">7:30 - 8:30</span>
-                            <span class="booking__status">Disponible</span>
-                        </div>
-                        <div class="booking__slot">
-                            <span class="booking__time">8:30 - 9:30</span>
-                            <span class="booking__status">Disponible</span>
-                        </div>
-                        <div class="booking__slot">
-                            <span class="booking__time">9:30 - 10:30</span>
-                            <span class="booking__status">Disponible</span>
-                        </div>
+
+                    <!-- Cal.com inline embed -->
+                    <div class="booking__calendar">
+                        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-rdv-evaluation-bien-etre-body-scan"></div>
+                        <script type="text/javascript">
+                          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                        Cal("init", "rdv-evaluation-bien-etre-body-scan", {origin:"https://app.cal.com"});
+
+                          Cal.ns["rdv-evaluation-bien-etre-body-scan"]("inline", {
+                            elementOrSelector:"#my-cal-inline-rdv-evaluation-bien-etre-body-scan",
+                            config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+                            calLink: "gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan",
+                          });
+
+                          Cal.ns["rdv-evaluation-bien-etre-body-scan"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                        </script>
                     </div>
-                    <a href="https://wa.me/32470120300?text=Bonjour%20!%20Je%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20au%20Breakfast%20Club%20%F0%9F%8D%93" target="_blank" rel="noopener" class="btn btn--gradient" id="booking-cta">R&eacute;server via WhatsApp</a>
+
+                    <p class="booking__alt">Tu pr&eacute;f&egrave;res passer par WhatsApp ?
+                        <a href="https://wa.me/32470120300?text=Bonjour%20!%20Je%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20au%20Breakfast%20Club%20%F0%9F%8D%93" target="_blank" rel="noopener" id="booking-cta">Contacte-nous ici</a>
+                    </p>
                 </div>
             </div>
         </section>

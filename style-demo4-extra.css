@@ -1009,6 +1009,52 @@ body.popup-open {
 }
 
 /* ===========================
+   BOOKING — Cal.com inline embed
+   =========================== */
+.booking__calendar {
+    width: 100%;
+    min-height: 720px;
+    margin: 32px auto 24px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    max-width: 1100px;
+}
+
+.booking__calendar #my-cal-inline-rdv-evaluation-bien-etre-body-scan {
+    height: 720px !important;
+    overflow: hidden !important;
+}
+
+.booking__alt {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    margin-top: 16px;
+}
+
+.booking__alt a {
+    color: var(--orange);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.booking__alt a:hover {
+    color: var(--pink);
+}
+
+@media (max-width: 768px) {
+    .booking__calendar {
+        min-height: 640px;
+    }
+    .booking__calendar #my-cal-inline-rdv-evaluation-bien-etre-body-scan {
+        height: 640px !important;
+    }
+}
+
+/* ===========================
    PRICING — 2 cards layout (redesigned)
    =========================== */
 .pricing {
