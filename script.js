@@ -244,28 +244,46 @@
         if (!btn) return;
 
         var SUMUP_DISCOVERY_URL = 'https://pay.sumup.com/b2c/QI6QM8AY';
+        var redirectArmed = false; // only redirect after a discovery click triggered the modal
+
+        // Wait for Cal SDK to load, then register global event listener once
+        function registerCalListener() {
+            if (!window.Cal) {
+                setTimeout(registerCalListener, 200);
+                return;
+            }
+
+            // Listen to ALL Cal.com events for debug + redirect on booking success
+            Cal('on', {
+                action: '*',
+                callback: function(e) {
+                    console.log('[Cal.com event]', e && e.detail && e.detail.type, e);
+
+                    if (!redirectArmed) return;
+
+                    var type = e && e.detail && e.detail.type;
+                    if (type === 'bookingSuccessful' ||
+                        type === 'linkReady' && e.detail.data && e.detail.data.bookingId) {
+                        setTimeout(function() {
+                            window.location.href = SUMUP_DISCOVERY_URL;
+                        }, 1200);
+                    }
+                }
+            });
+        }
+        registerCalListener();
 
         btn.addEventListener('click', function(e) {
-            // If Cal.com SDK loaded, open modal
             if (window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan']) {
                 e.preventDefault();
+                redirectArmed = true; // arm the redirect
+
                 Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
                     calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
                     config: {
                         layout: 'month_view',
                         successRedirectUrl: SUMUP_DISCOVERY_URL,
                         redirectUrl: SUMUP_DISCOVERY_URL
-                    }
-                });
-
-                // Listen to Cal.com booking_successful event as fallback
-                Cal('on', {
-                    action: 'bookingSuccessful',
-                    callback: function() {
-                        // Small delay to let Cal show its confirmation, then redirect
-                        setTimeout(function() {
-                            window.location.href = SUMUP_DISCOVERY_URL;
-                        }, 1500);
                     }
                 });
 
