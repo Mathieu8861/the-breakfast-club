@@ -1089,15 +1089,18 @@ body.popup-open {
 
 .booking__calendar {
     width: 100%;
-    height: 600px;
+    height: 540px;
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--white);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    zoom: 0.85;
+    -moz-transform: scale(0.85);
+    -moz-transform-origin: 0 0;
 }
 
 .booking__calendar #my-cal-inline-rdv-evaluation-bien-etre-body-scan {
-    height: 600px !important;
+    height: 540px !important;
     overflow: hidden !important;
 }
 
