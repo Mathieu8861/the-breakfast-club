@@ -689,7 +689,18 @@
                             calLink: "gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan",
                           });
 
-                          Cal.ns["rdv-evaluation-bien-etre-body-scan"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                          Cal.ns["rdv-evaluation-bien-etre-body-scan"]("ui", {
+                            "hideEventTypeDetails": false,
+                            "layout": "month_view",
+                            "theme": "light",
+                            "cssVarsPerTheme": {
+                                "light": {
+                                    "cal-brand": "#ff7100",
+                                    "cal-text-emphasis": "#1e3330",
+                                    "cal-bg-emphasis": "#ff7100"
+                                }
+                            }
+                          });
                         </script>
                     </div>
 
