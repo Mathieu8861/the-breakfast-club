@@ -244,50 +244,52 @@
         if (!btn) return;
 
         var SUMUP_DISCOVERY_URL = 'https://pay.sumup.com/b2c/QI6QM8AY';
-        var redirectArmed = false; // only redirect after a discovery click triggered the modal
+        var redirectArmed = false; // only redirect after a discovery click
 
-        // Wait for Cal SDK to load, then register global event listener once
-        function registerCalListener() {
-            if (!window.Cal) {
-                setTimeout(registerCalListener, 200);
-                return;
+        // Listen to postMessage events from Cal.com iframe
+        window.addEventListener('message', function(event) {
+            if (!event.origin || !event.origin.includes('cal.com')) return;
+
+            console.log('[Cal postMessage]', event.data);
+
+            if (!redirectArmed) return;
+
+            // Cal.com sends various message formats — try multiple shapes
+            var data = event.data || {};
+            var type = data.type || data.event || (data.detail && data.detail.type) || '';
+            var fullDataStr = JSON.stringify(data).toLowerCase();
+
+            // Detect booking success in any format
+            var isBookingSuccess =
+                type === 'bookingSuccessful' ||
+                type === '__booking-successful' ||
+                type === 'CAL:bookingSuccessful' ||
+                fullDataStr.indexOf('bookingsuccessful') !== -1 ||
+                fullDataStr.indexOf('booking_successful') !== -1 ||
+                (data.namespace === 'rdv-evaluation-bien-etre-body-scan' &&
+                 fullDataStr.indexOf('uid') !== -1 && fullDataStr.indexOf('booking') !== -1);
+
+            if (isBookingSuccess) {
+                console.log('[Discovery flow] Booking success detected, redirecting to SumUp');
+                setTimeout(function() {
+                    window.location.href = SUMUP_DISCOVERY_URL;
+                }, 1500);
             }
-
-            // Listen to ALL Cal.com events for debug + redirect on booking success
-            Cal('on', {
-                action: '*',
-                callback: function(e) {
-                    console.log('[Cal.com event]', e && e.detail && e.detail.type, e);
-
-                    if (!redirectArmed) return;
-
-                    var type = e && e.detail && e.detail.type;
-                    if (type === 'bookingSuccessful' ||
-                        type === 'linkReady' && e.detail.data && e.detail.data.bookingId) {
-                        setTimeout(function() {
-                            window.location.href = SUMUP_DISCOVERY_URL;
-                        }, 1200);
-                    }
-                }
-            });
-        }
-        registerCalListener();
+        });
 
         btn.addEventListener('click', function(e) {
             if (window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan']) {
                 e.preventDefault();
-                redirectArmed = true; // arm the redirect
+                redirectArmed = true;
 
                 Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
                     calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
                     config: {
                         layout: 'month_view',
-                        successRedirectUrl: SUMUP_DISCOVERY_URL,
-                        redirectUrl: SUMUP_DISCOVERY_URL
+                        successRedirectUrl: SUMUP_DISCOVERY_URL
                     }
                 });
 
-                // Track Lead event on Meta Pixel
                 if (typeof fbq === 'function') {
                     fbq('track', 'Lead', {
                         content_name: 'Discovery booking initiated',
