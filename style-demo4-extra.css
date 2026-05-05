@@ -1015,12 +1015,21 @@ body.popup-open {
     background: var(--cream) !important;
 }
 
-.booking--split {
+/* Override base .booking { max-width: 700px } */
+.booking.booking--split {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: stretch;
     width: 100%;
+    max-width: 100% !important;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* Make this section's container wider than the standard 1200px */
+.section--booking .container {
+    max-width: 1400px;
 }
 
 .booking__left {
