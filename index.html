@@ -210,21 +210,21 @@
             <div class="hero__objectives-block">
                 <p class="hero__objectives-label">Choisis ton objectif</p>
                 <div class="hero__objectives">
-                    <a href="#booking" class="objective-btn objective-btn--orange" data-objective="Perte de poids">
+                    <a href="#pricing" class="objective-btn objective-btn--orange" data-objective="Perte de poids">
                         <svg class="objective-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
                         </svg>
                         <span class="objective-btn__label">Perte de poids</span>
                     </a>
-                    <a href="#booking" class="objective-btn objective-btn--pink" data-objective="Prise de masse musculaire">
+                    <a href="#pricing" class="objective-btn objective-btn--pink" data-objective="Prise de masse musculaire">
                         <svg class="objective-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.5 6.5L3 3M17.5 17.5L21 21M17.5 6.5L21 3M6.5 17.5L3 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             <path d="M8 8l2-2h4l2 2v8l-2 2h-4l-2-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                         </svg>
                         <span class="objective-btn__label">Prise de masse musculaire</span>
                     </a>
-                    <a href="#booking" class="objective-btn objective-btn--green" data-objective="Gain d'&eacute;nergie">
+                    <a href="#pricing" class="objective-btn objective-btn--green" data-objective="Gain d'&eacute;nergie">
                         <svg class="objective-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 2L4.5 13.5h6L11 22l8.5-11.5h-6L13 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                         </svg>
@@ -570,7 +570,7 @@
                                     <span class="pricing__amount">20</span>
                                     <span class="pricing__currency">&euro;</span>
                                 </div>
-                                <p class="pricing__per">acompte 100% d&eacute;duit</p>
+                                <p class="pricing__per">acompte 100% d&eacute;duit de votre prochain abonnement</p>
                                 <p class="pricing__saving pricing__saving--green">Bilan &amp; scan offerts</p>
                                 <ul class="pricing__features">
                                     <li>Bilan bien-&ecirc;tre complet</li>
@@ -580,7 +580,7 @@
                                     <li>Consultation avec un coach</li>
                                     <li>Acompte d&eacute;duit de ton abonnement</li>
                                 </ul>
-                                <a href="#booking" class="btn btn--outline-green btn--full" id="discovery-book-cta">Je r&eacute;serve</a>
+                                <a href="#pricing" class="btn btn--outline-green btn--full" id="discovery-book-cta">Je r&eacute;serve</a>
                             </div>
                         </div>
                         <div class="pricing__card-wrapper">
@@ -660,65 +660,6 @@
                     <div class="faq-item">
                         <h3 class="faq-item__question">Comment r&eacute;server mon cr&eacute;neau ?</h3>
                         <p class="faq-item__answer">Contacte-nous via WhatsApp, Instagram ou par t&eacute;l&eacute;phone. On t'attribue un cr&eacute;neau d'1 heure le matin (max 10 personnes par cr&eacute;neau) pour un accompagnement de qualit&eacute;.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== BOOKING ==================== -->
-        <section class="section section--booking" id="booking">
-            <div class="container">
-                <div class="booking booking--split">
-                    <div class="booking__left">
-                        <span class="tag tag--pink">R&eacute;servation</span>
-                        <h2 class="section__title">R&eacute;serve ton <span class="text-accent text-accent--pink">cr&eacute;neau.</span></h2>
-                        <p class="booking__desc" id="booking-desc">Chaque matin de 7h &agrave; 10h30, on t'accueille pour une s&eacute;ance d'1 heure avec un coach d&eacute;di&eacute;. Tu peux venir seul&middot;e ou accompagn&eacute;&middot;e d'une personne de ton choix.</p>
-
-                        <ul class="booking__perks">
-                            <li>1h en tête-à-tête avec un coach</li>
-                            <li>Bilan bien-être + scan corporel offerts (1&egrave;re visite)</li>
-                            <li>Annulation gratuite jusqu'&agrave; 48h avant</li>
-                            <li>Rappel automatique 1h avant la s&eacute;ance</li>
-                        </ul>
-
-                        <div class="booking__objective" id="booking-objective" hidden>
-                            <span class="booking__objective-label">Ton objectif :</span>
-                            <span class="booking__objective-value" id="booking-objective-value"></span>
-                        </div>
-
-                        <p class="booking__alt">Tu pr&eacute;f&egrave;res passer par WhatsApp ?
-                            <a href="https://wa.me/32470120300?text=Bonjour%20!%20Je%20souhaite%20r%C3%A9server%20un%20cr%C3%A9neau%20au%20Breakfast%20Club%20%F0%9F%8D%93" target="_blank" rel="noopener" id="booking-cta">Contacte-nous ici</a>
-                        </p>
-                    </div>
-
-                    <!-- Cal.com inline embed -->
-                    <div class="booking__right">
-                    <div class="booking__calendar">
-                        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-rdv-evaluation-bien-etre-body-scan"></div>
-                        <script type="text/javascript">
-                          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-                        Cal("init", "rdv-evaluation-bien-etre-body-scan", {origin:"https://app.cal.com"});
-
-                          Cal.ns["rdv-evaluation-bien-etre-body-scan"]("inline", {
-                            elementOrSelector:"#my-cal-inline-rdv-evaluation-bien-etre-body-scan",
-                            config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-                            calLink: "gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan",
-                          });
-
-                          Cal.ns["rdv-evaluation-bien-etre-body-scan"]("ui", {
-                            "hideEventTypeDetails": false,
-                            "layout": "month_view",
-                            "theme": "light",
-                            "cssVarsPerTheme": {
-                                "light": {
-                                    "cal-brand": "#ff7100",
-                                    "cal-text-emphasis": "#1e3330",
-                                    "cal-bg-emphasis": "#ff7100"
-                                }
-                            }
-                          });
-                        </script>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -860,6 +801,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Cal.com SDK init (used by Discovery booking modal — see script.js) -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "rdv-evaluation-bien-etre-body-scan", {origin:"https://app.cal.com"});
+      Cal.ns["rdv-evaluation-bien-etre-body-scan"]("ui", {
+        "hideEventTypeDetails": false,
+        "layout": "month_view",
+        "theme": "light",
+        "cssVarsPerTheme": {
+            "light": {
+                "cal-brand": "#ff7100",
+                "cal-text-emphasis": "#1e3330",
+                "cal-bg-emphasis": "#ff7100"
+            }
+        }
+      });
+    </script>
 
     <!-- Scripts -->
     <script src="script.js"></script>
