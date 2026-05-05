@@ -1015,21 +1015,33 @@ body.popup-open {
     background: var(--cream) !important;
 }
 
-/* Override base .booking { max-width: 700px } */
+/* Override base .booking { max-width: 700px; text-align: center; margin: 0 auto } */
 .booking.booking--split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 50px;
     align-items: stretch;
-    width: 100%;
+    width: 100% !important;
     max-width: 100% !important;
     text-align: left !important;
     margin: 0 !important;
 }
 
-/* Make this section's container wider than the standard 1200px */
+/* Wider container for booking section */
 .section--booking .container {
     max-width: 1400px;
+    width: 100%;
+}
+
+/* Force left column children to fill width */
+.booking__left > * {
+    max-width: 100%;
+    width: 100%;
+}
+
+.booking__left .tag {
+    width: auto;
+    align-self: flex-start;
 }
 
 .booking__left {
