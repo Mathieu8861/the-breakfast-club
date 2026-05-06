@@ -239,10 +239,8 @@
     }
 
     // === DISCOVERY BOOKING FLOW (Cal.com modal -> SumUp 20€) ===
+    // Shared by: discovery card "Je réserve" + welcome popup CTA
     function initDiscoveryBookingFlow() {
-        var btn = document.getElementById('discovery-book-cta');
-        if (!btn) return;
-
         var SUMUP_DISCOVERY_URL = 'https://pay.sumup.com/b2c/QI6QM8AY';
         var redirectArmed = false; // only redirect after a discovery click
 
@@ -254,12 +252,10 @@
 
             if (!redirectArmed) return;
 
-            // Cal.com sends various message formats — try multiple shapes
             var data = event.data || {};
             var type = data.type || data.event || (data.detail && data.detail.type) || '';
             var fullDataStr = JSON.stringify(data).toLowerCase();
 
-            // Detect booking success in any format
             var isBookingSuccess =
                 type === 'bookingSuccessful' ||
                 type === '__booking-successful' ||
@@ -277,28 +273,58 @@
             }
         });
 
-        btn.addEventListener('click', function(e) {
-            if (window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan']) {
-                e.preventDefault();
-                redirectArmed = true;
+        // Shared trigger function
+        function triggerDiscoveryBooking(sourceLabel) {
+            if (!(window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan'])) return false;
 
-                Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
-                    calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
-                    config: {
-                        layout: 'month_view',
-                        successRedirectUrl: SUMUP_DISCOVERY_URL
-                    }
-                });
+            redirectArmed = true;
 
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead', {
-                        content_name: 'Discovery booking initiated',
-                        value: 20,
-                        currency: 'EUR'
-                    });
+            Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
+                calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
+                config: {
+                    layout: 'month_view',
+                    successRedirectUrl: SUMUP_DISCOVERY_URL
                 }
+            });
+
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: 'Discovery booking initiated - ' + sourceLabel,
+                    value: 20,
+                    currency: 'EUR'
+                });
             }
-        });
+            return true;
+        }
+
+        // Discovery card button
+        var discoveryBtn = document.getElementById('discovery-book-cta');
+        if (discoveryBtn) {
+            discoveryBtn.addEventListener('click', function(e) {
+                if (triggerDiscoveryBooking('discovery card')) {
+                    e.preventDefault();
+                }
+            });
+        }
+
+        // Welcome popup CTA — also closes the popup before opening Cal modal
+        var popupBtn = document.getElementById('popup-book-cta');
+        if (popupBtn) {
+            popupBtn.addEventListener('click', function(e) {
+                if (triggerDiscoveryBooking('welcome popup')) {
+                    e.preventDefault();
+
+                    // Close the welcome popup
+                    var popup = document.getElementById('welcome-popup');
+                    if (popup) {
+                        popup.classList.remove('popup--open');
+                        popup.setAttribute('aria-hidden', 'true');
+                        document.body.classList.remove('popup-open');
+                        try { sessionStorage.setItem('bfc_popup_seen', '1'); } catch (err) {}
+                    }
+                }
+            });
+        }
     }
 
     // === RESULTS CAROUSEL (before/after) ===
