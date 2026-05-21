@@ -1756,12 +1756,29 @@ body.popup-open {
         gap: 16px;
     }
 
+    /* Convert stack -> horizontal carousel on mobile */
     .testimonials__stack {
+        flex-direction: row !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
         gap: 12px;
+        padding: 4px 16px;
+        margin: 0 -16px; /* break out of container for full-width feel */
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .testimonials__stack::-webkit-scrollbar {
+        display: none;
     }
 
     .testimonials__stack .testimonial {
-        flex: 0 0 auto;
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        min-height: 180px;
     }
 
     .testimonials__video {
