@@ -1473,9 +1473,43 @@ body.popup-open {
     }
 }
 
-/* Hide decos on small screens */
+/* Hide ALL decorative elements on small screens to prevent overlap with images */
 @media (max-width: 768px) {
-    .deco-behind { display: none; }
+    .deco-behind,
+    .hero__shape,
+    .hero__shape--dots,
+    .hero__shape--circle,
+    .hero__img-accent {
+        display: none !important;
+    }
+
+    /* Disable all ::before / ::after decorative pseudo-elements on sections */
+    .section--philosophy::before,
+    .section--philosophy::after,
+    .section--concept::before,
+    .section--concept::after,
+    .section--howitworks::before,
+    .section--howitworks::after,
+    .section--community::before,
+    .section--community::after,
+    .section--services::before,
+    .section--services::after,
+    .section--results::before,
+    .section--results::after,
+    .section--testimonials::before,
+    .section--testimonials::after,
+    .section--pricing::before,
+    .section--pricing::after,
+    .section--faq::before,
+    .section--faq::after,
+    .section--contact::before,
+    .section--contact::after,
+    .hero__right::before,
+    .hero__right::after,
+    .pricing__card-wrapper--featured::after {
+        display: none !important;
+        content: none !important;
+    }
 }
 
 /* ===========================
