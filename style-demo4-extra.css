@@ -1752,6 +1752,16 @@ body.popup-open {
 @media (max-width: 768px) {
     .testimonials__layout {
         grid-template-columns: 1fr;
+        max-height: none !important;
+        gap: 16px;
+    }
+
+    .testimonials__stack {
+        gap: 12px;
+    }
+
+    .testimonials__stack .testimonial {
+        flex: 0 0 auto;
     }
 
     .testimonials__video {
