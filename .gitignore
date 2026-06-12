@@ -2,6 +2,7 @@
 .env
 .env.local
 .env.production
+.env*.local
 
 # Editor / OS
 .claude/
@@ -10,3 +11,5 @@ Thumbs.db
 
 # Node modules (if ever added)
 node_modules/
+
+.vercel
