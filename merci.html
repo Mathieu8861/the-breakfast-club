@@ -181,6 +181,11 @@
     <script>
         // Read URL params (?product=X&amount=Y) and fire Purchase event
         (function() {
+            function getCookie(name) {
+                var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+                return m ? decodeURIComponent(m[1]) : null;
+            }
+
             var params = new URLSearchParams(window.location.search);
             var product = params.get('product') || 'formule';
             var amount = parseFloat(params.get('amount')) || 0;
@@ -199,11 +204,15 @@
 
             // Fire Meta Pixel Purchase event
             if (typeof fbq === 'function' && amount > 0) {
+                // Same event ID on the browser Pixel and the CAPI call so Meta
+                // deduplicates them (otherwise 1 purchase = 2 conversions)
+                var eventId = 'web_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+
                 fbq('track', 'Purchase', {
                     value: amount,
                     currency: 'EUR',
                     content_name: productLabels[product] || product
-                });
+                }, { eventID: eventId });
 
                 // Also notify Conversion API backend (server-side tracking)
                 try {
@@ -212,8 +221,11 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             event_name: 'Purchase',
+                            event_id: eventId,
                             event_source_url: window.location.href,
                             user_agent: navigator.userAgent,
+                            fbp: getCookie('_fbp'),
+                            fbc: getCookie('_fbc'),
                             value: amount,
                             currency: 'EUR',
                             content_name: productLabels[product] || product

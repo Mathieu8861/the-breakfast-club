@@ -52,8 +52,11 @@ module.exports = async function handler(req, res) {
         const body = req.body || {};
         const {
             event_name = 'PageView',
+            event_id,
             event_source_url = '',
             user_agent = '',
+            fbp,
+            fbc,
             value,
             currency,
             content_name,
@@ -63,13 +66,15 @@ module.exports = async function handler(req, res) {
 
         const ip = getClientIp(req);
 
-        // Build user_data (hashed where required)
+        // Build user_data (hashed where required; fbp/fbc are sent raw per Meta spec)
         const userData = {
             client_ip_address: ip,
             client_user_agent: user_agent || req.headers['user-agent'] || ''
         };
         if (email) userData.em = hash(email);
         if (phone) userData.ph = hash(phone);
+        if (fbp) userData.fbp = fbp;
+        if (fbc) userData.fbc = fbc;
 
         // Build custom_data
         const customData = {};
@@ -85,6 +90,7 @@ module.exports = async function handler(req, res) {
             user_data: userData,
             custom_data: customData
         };
+        if (event_id) eventPayload.event_id = event_id; // dedup with browser Pixel
 
         const url = `https://graph.facebook.com/${API_VERSION}/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
         const response = await fetch(url, {
