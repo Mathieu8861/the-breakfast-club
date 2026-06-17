@@ -125,6 +125,12 @@ function isOnlinePayment(tx) {
     // POS = card terminal (in-shop) — skip these
     if (tx.payment_type === 'POS') return false;
 
+    // Only successful PAYMENTS — never refunds/chargebacks.
+    // (SumUp returns REFUND transactions with type 'REFUND' / status 'REFUNDED';
+    //  without this guard they'd be sent to Meta as fake Purchase events.)
+    if (tx.type && tx.type !== 'PAYMENT') return false;
+    if (tx.status && tx.status !== 'SUCCESSFUL') return false;
+
     // Online payments come from Payment Links / ECOM / CHECKOUT
     // Match amounts to known products as a safety filter
     const amount = parseFloat(tx.amount);
