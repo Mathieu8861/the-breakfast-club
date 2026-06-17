@@ -12,6 +12,7 @@
 // =============================================================================
 
 const SUMUP_API_KEY = process.env.SUMUP_API_KEY;
+const SUMUP_MERCHANT_CODE = process.env.SUMUP_MERCHANT_CODE || 'MDYF9FMT';
 const CRON_SECRET = process.env.CRON_SECRET;
 const META_PIXEL_ID = process.env.META_PIXEL_ID || '1582702526170106';
 const META_ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
@@ -37,6 +38,43 @@ async function fetchRecentTransactions() {
     }
     const data = await r.json();
     return { items: data.items || [], since };
+}
+
+function mask(v) {
+    if (!v) return null;
+    const s = String(v);
+    if (s.length <= 3) return s[0] + '***';
+    return s.substring(0, 2) + '***' + s.substring(s.length - 1);
+}
+
+// Probe SumUp detail endpoints to see if ANY customer identifier (email/phone)
+// is available for Meta matching. Returns masked previews only (no raw PII).
+async function probeCustomerData(tx) {
+    const id = tx.id || tx.transaction_id;
+    const candidates = [
+        `https://api.sumup.com/v2.1/merchants/${SUMUP_MERCHANT_CODE}/transactions/${id}`,
+        `https://api.sumup.com/v0.1/me/transactions?id=${encodeURIComponent(id)}`
+    ];
+    const out = [];
+    for (const url of candidates) {
+        try {
+            const r = await fetch(url, { headers: { 'Authorization': `Bearer ${SUMUP_API_KEY}`, 'Accept': 'application/json' } });
+            if (!r.ok) { out.push({ url: url.split('?')[0], ok: false, status: r.status }); continue; }
+            const d = await r.json();
+            const cust = d.customer || (d.checkout && d.checkout.customer) || {};
+            out.push({
+                url: url.split('?')[0],
+                ok: true,
+                top_level_keys: Object.keys(d),
+                found_email: mask(d.customer_email || d.email || cust.email || (d.payment_instrument && d.payment_instrument.email)),
+                found_phone: mask(d.customer_phone || d.phone || cust.phone),
+                has_customer_object: !!(d.customer || (d.checkout && d.checkout.customer))
+            });
+        } catch (e) {
+            out.push({ url: url.split('?')[0], ok: false, error: e.message });
+        }
+    }
+    return out;
 }
 
 // Same rule as the corrected poller: successful online PAYMENT, known amount
@@ -120,12 +158,19 @@ module.exports = async function handler(req, res) {
                 matched_product: PRODUCT_AMOUNTS[parseFloat(tx.amount)] || null
             };
         });
+        // For the trackable payment(s), probe whether SumUp exposes customer email/phone
+        const probes = [];
+        for (const tx of items.filter(isTrackablePayment)) {
+            probes.push({ id: tx.id || tx.transaction_id, customer_data: await probeCustomerData(tx) });
+        }
+
         return res.status(200).json({
             hours_back: HOURS_BACK,
             since,
             total_found: items.length,
             raw_fields_sample: items.length ? Object.keys(items[0]) : [],
-            transactions
+            transactions,
+            customer_data_probe: probes
         });
     } catch (err) {
         return res.status(500).json({ error: 'Internal error', message: err.message });
