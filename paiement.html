@@ -443,6 +443,21 @@
                 ttq.track('InitiateCheckout', { value: p.amount, currency: 'EUR', content_id: key, content_type: 'product', content_name: p.plan });
             }
 
+            // Pre-fill from a Cal.com discovery booking if present (no double entry)
+            try {
+                var prefill = JSON.parse(sessionStorage.getItem('tbc_prefill') || 'null');
+                if (prefill) {
+                    if (prefill.email) document.getElementById('email').value = prefill.email;
+                    if (prefill.phone) document.getElementById('phone').value = prefill.phone;
+                    if (prefill.name) {
+                        var parts = String(prefill.name).trim().split(/\s+/);
+                        document.getElementById('firstname').value = parts.shift() || '';
+                        document.getElementById('lastname').value = parts.join(' ');
+                    }
+                    sessionStorage.removeItem('tbc_prefill');
+                }
+            } catch (e) {}
+
             var infoForm = document.getElementById('info-form');
             var infoBtn = document.getElementById('info-submit');
             var infoErr = document.getElementById('info-error');

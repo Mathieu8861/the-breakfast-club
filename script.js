@@ -238,11 +238,36 @@
         });
     }
 
-    // === DISCOVERY BOOKING FLOW (Cal.com modal -> SumUp 20€) ===
+    // === DISCOVERY BOOKING FLOW (Cal.com modal -> our tracked payment page) ===
     // Shared by: discovery card "Je réserve" + welcome popup CTA
     function initDiscoveryBookingFlow() {
-        var SUMUP_DISCOVERY_URL = 'https://pay.sumup.com/b2c/QI6QM8AY';
+        // After the Cal.com slot is booked, we send the customer to our own
+        // payment page (instead of the raw SumUp link) so the 20€ is tracked.
+        var DISCOVERY_PAYMENT_URL = 'paiement.html?formule=decouverte';
+        var DISCOVERY_PAYMENT_ABS = window.location.origin + '/paiement.html?formule=decouverte';
         var redirectArmed = false; // only redirect after a discovery click
+
+        // Pull the attendee's contact out of the Cal.com booking event so the
+        // payment page can pre-fill it (no double data entry).
+        function extractContact(data) {
+            var out = { email: null, name: null, phone: null };
+            try {
+                var d = (data && data.data) || (data && data.detail && data.detail.data) || data || {};
+                var b = d.booking || d;
+                var att = (b.attendees && b.attendees[0]) || null;
+                if (att) { out.email = att.email || out.email; out.name = att.name || out.name; out.phone = att.phoneNumber || out.phone; }
+                var resp = b.responses || (b.booking && b.booking.responses);
+                if (resp) {
+                    if (!out.email && resp.email) out.email = resp.email.value || resp.email;
+                    if (!out.name && resp.name) out.name = resp.name.value || resp.name;
+                    if (!out.phone && resp.phone) out.phone = resp.phone.value || resp.phone;
+                }
+            } catch (e) {}
+            if (!out.email) {
+                try { var m = JSON.stringify(data).match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/); if (m) out.email = m[0]; } catch (e) {}
+            }
+            return out;
+        }
 
         // Listen to postMessage events from Cal.com iframe
         window.addEventListener('message', function(event) {
@@ -266,9 +291,11 @@
                  fullDataStr.indexOf('uid') !== -1 && fullDataStr.indexOf('booking') !== -1);
 
             if (isBookingSuccess) {
-                console.log('[Discovery flow] Booking success detected, redirecting to SumUp');
+                console.log('[Discovery flow] Booking success detected, redirecting to payment page');
+                // Carry the email/name/phone over to the payment page (best-effort)
+                try { sessionStorage.setItem('tbc_prefill', JSON.stringify(extractContact(data))); } catch (e) {}
                 setTimeout(function() {
-                    window.location.href = SUMUP_DISCOVERY_URL;
+                    window.location.href = DISCOVERY_PAYMENT_URL;
                 }, 1500);
             }
         });
@@ -283,7 +310,7 @@
                 calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
                 config: {
                     layout: 'month_view',
-                    successRedirectUrl: SUMUP_DISCOVERY_URL
+                    successRedirectUrl: DISCOVERY_PAYMENT_ABS
                 }
             });
 
