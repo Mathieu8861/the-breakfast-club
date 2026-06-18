@@ -60,6 +60,8 @@ module.exports = async function handler(req, res) {
             value,
             currency,
             content_name,
+            content_ids,
+            content_type,
             email,
             phone
         } = body;
@@ -81,6 +83,8 @@ module.exports = async function handler(req, res) {
         if (typeof value === 'number') customData.value = value;
         if (currency) customData.currency = currency;
         if (content_name) customData.content_name = content_name;
+        if (content_ids) customData.content_ids = content_ids;
+        if (content_type) customData.content_type = content_type;
 
         const eventPayload = {
             event_name,

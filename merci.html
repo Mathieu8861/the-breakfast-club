@@ -257,7 +257,9 @@
                             phone: customer.phone || null,
                             value: amount,
                             currency: 'EUR',
-                            content_name: label
+                            content_name: label,
+                            content_ids: [product],
+                            content_type: 'product'
                         })
                     }).catch(function() {});
                 } catch (e) {}
