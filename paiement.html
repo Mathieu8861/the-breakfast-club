@@ -490,9 +490,14 @@
                     document.getElementById('step-info').classList.add('is-hidden');
                     document.getElementById('step-card').classList.remove('is-hidden');
 
+                    // Remove the loading placeholder so it doesn't sit above the widget
+                    var loadingHint = document.getElementById('card-loading');
+                    if (loadingHint) loadingHint.remove();
+
                     SumUpCard.mount({
                         id: 'sumup-card',
                         checkoutId: data.checkout_id,
+                        locale: 'fr-FR',
                         showFooter: false,
                         onResponse: function (type, bodyResp) {
                             console.log('[SumUp] onResponse:', type, bodyResp);
