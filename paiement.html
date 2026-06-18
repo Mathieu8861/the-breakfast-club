@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Paiement sécurisé - The Breakfast Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo-green.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style-demo3.css">
+    <link rel="stylesheet" href="style-demo4-extra.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1582702526170106');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1582702526170106&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+      ttq.load('D8OPE7JC77U9QNO9SFC0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <style>
+        body {
+            background: var(--cream);
+            min-height: 100vh;
+            font-family: var(--font-body);
+        }
+
+        /* Decorative dots pattern (Regen DA — kept fully inside its zone) */
+        .pay-deco {
+            position: fixed;
+            top: -60px;
+            right: -60px;
+            width: 280px;
+            height: 280px;
+            background-image: radial-gradient(var(--peach) 2px, transparent 2px);
+            background-size: 22px 22px;
+            opacity: 0.35;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .pay-deco--2 {
+            top: auto;
+            right: auto;
+            bottom: -70px;
+            left: -70px;
+            background-image: radial-gradient(var(--green) 2px, transparent 2px);
+            opacity: 0.25;
+        }
+
+        /* Top bar */
+        .pay-topbar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 28px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .pay-topbar__logo { height: 38px; }
+        .pay-secure {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--dark);
+        }
+        .pay-secure svg { width: 18px; height: 18px; color: var(--green); }
+
+        /* Demo banner */
+        .pay-demo-banner {
+            position: relative;
+            z-index: 2;
+            max-width: 1080px;
+            margin: 0 auto 4px;
+            padding: 10px 28px;
+        }
+        .pay-demo-banner__inner {
+            background: rgba(255, 113, 0, 0.1);
+            border: 1px dashed var(--orange);
+            color: #a84a00;
+            border-radius: var(--radius-md);
+            padding: 10px 16px;
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Layout */
+        .pay-wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 16px 28px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 28px;
+            align-items: start;
+        }
+        @media (max-width: 860px) {
+            .pay-wrap { grid-template-columns: 1fr; }
+            .pay-summary { order: 2; }
+        }
+
+        /* Card shell */
+        .pay-box {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.07);
+            padding: 32px;
+        }
+
+        /* Order summary */
+        .pay-summary__label {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.72rem;
+            color: var(--gray-600);
+            margin-bottom: 14px;
+        }
+        .pay-summary__plan {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            text-transform: uppercase;
+            line-height: 1.05;
+            margin-bottom: 4px;
+        }
+        .pay-summary__sub {
+            font-family: var(--font-heading);
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-bottom: 22px;
+        }
+        .pay-summary__features { list-style: none; padding: 0; margin: 0 0 24px; }
+        .pay-summary__features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 0;
+            font-size: 0.92rem;
+            color: var(--dark);
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .pay-summary__features li::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: 800;
+        }
+        .pay-total {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+        .pay-total__label { font-family: var(--font-heading); font-weight: 600; color: var(--dark); }
+        .pay-total__amount {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            background: var(--gradient-cta);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pay-total__amount span { font-size: 1.4rem; }
+
+        /* Form */
+        .pay-form__title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .pay-form__hint {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 22px;
+        }
+        .pay-field { margin-bottom: 16px; }
+        .pay-field label {
+            display: block;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.82rem;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        .pay-field input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            background: #fff;
+        }
+        .pay-field input:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(255, 113, 0, 0.12);
+        }
+        .pay-field input::placeholder { color: var(--gray-400); }
+        .pay-field--row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        /* Card placeholder (SumUp widget will mount here) */
+        .pay-card-zone {
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            background: #fbfbfb;
+        }
+        .pay-card-zone__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .pay-card-zone__head span {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.82rem;
+            color: var(--dark);
+        }
+        .pay-card-line {
+            background: #fff;
+            border: 1.5px dashed var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            color: var(--gray-400);
+            font-size: 0.92rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .pay-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .pay-card-note {
+            margin-top: 10px;
+            font-size: 0.74rem;
+            color: var(--gray-400);
+            font-family: var(--font-heading);
+        }
+
+        /* Pay button */
+        .pay-btn {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            margin-top: 22px;
+            padding: 16px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-cta);
+            color: #fff;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.02rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 10px 26px rgba(255, 80, 60, 0.32);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(255, 80, 60, 0.4); }
+        .pay-btn:active { transform: translateY(0); }
+        .pay-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .pay-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-family: var(--font-heading);
+            font-size: 0.78rem;
+            color: var(--gray-600);
+        }
+        .pay-trust svg { width: 15px; height: 15px; color: var(--green); }
+        .pay-error {
+            display: none;
+            margin-top: 12px;
+            background: rgba(255, 0, 122, 0.08);
+            color: #c10063;
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            font-family: var(--font-heading);
+        }
+    </style>
+</head>
+<body>
+    <div class="pay-deco"></div>
+    <div class="pay-deco pay-deco--2"></div>
+
+    <!-- Top bar -->
+    <div class="pay-topbar">
+        <img src="assets/logo-green.png" alt="The Breakfast Club" class="pay-topbar__logo">
+        <div class="pay-secure">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Paiement 100% sécurisé
+        </div>
+    </div>
+
+    <!-- Demo banner (preview only) -->
+    <div class="pay-demo-banner">
+        <div class="pay-demo-banner__inner">
+            🔧 Aperçu maquette — le module carte bancaire SumUp se branchera ici une fois le backend en ligne. Le bouton « Payer » simule pour l'instant le parcours jusqu'à la page de remerciement.
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="pay-wrap">
+        <!-- Order summary -->
+        <div class="pay-box pay-summary">
+            <p class="pay-summary__label">Ta commande</p>
+            <h1 class="pay-summary__plan" id="sum-plan">Carte 10 visites</h1>
+            <p class="pay-summary__sub" id="sum-sub">soit 9,50€ / visite</p>
+            <ul class="pay-summary__features" id="sum-features"></ul>
+            <div class="pay-total">
+                <span class="pay-total__label">Total à payer</span>
+                <span class="pay-total__amount"><span id="sum-amount">95</span><span>€</span></span>
+            </div>
+        </div>
+
+        <!-- Payment form -->
+        <div class="pay-box">
+            <h2 class="pay-form__title">Tes informations</h2>
+            <p class="pay-form__hint">On t'envoie ta confirmation et les détails par email.</p>
+
+            <form id="pay-form" novalidate>
+                <div class="pay-field pay-field--row">
+                    <div>
+                        <label for="firstname">Prénom</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Marie" autocomplete="given-name" required>
+                    </div>
+                    <div>
+                        <label for="lastname">Nom</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Dupont" autocomplete="family-name" required>
+                    </div>
+                </div>
+
+                <div class="pay-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="marie.dupont@email.com" autocomplete="email" required>
+                </div>
+
+                <div class="pay-field">
+                    <label for="phone">Téléphone <span style="color:var(--gray-400);font-weight:400;">(optionnel)</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="+32 470 00 00 00" autocomplete="tel">
+                </div>
+
+                <div class="pay-field">
+                    <label>Carte bancaire</label>
+                    <div class="pay-card-zone">
+                        <div class="pay-card-zone__head">
+                            <span>Informations de carte</span>
+                            <span style="color:var(--gray-400);font-size:0.72rem;">🔒 SumUp</span>
+                        </div>
+                        <div id="sumup-card" >
+                            <div class="pay-card-line">•••• •••• •••• ••••</div>
+                            <div class="pay-card-row">
+                                <div class="pay-card-line" style="margin-bottom:0;">MM / AA</div>
+                                <div class="pay-card-line" style="margin-bottom:0;">CVC</div>
+                            </div>
+                        </div>
+                        <p class="pay-card-note">Module de carte sécurisé SumUp — tes données bancaires ne transitent jamais par notre serveur.</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="pay-btn" id="pay-submit">Payer <span id="btn-amount">95</span>€</button>
+
+                <div class="pay-error" id="pay-error"></div>
+
+                <div class="pay-trust">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Paiement crypté SSL · Powered by SumUp
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            // ---- Product catalogue ----
+            var PRODUCTS = {
+                'decouverte': {
+                    plan: 'Séance découverte', amount: 20, sub: 'acompte 100% déduit de ton abonnement',
+                    features: ['Bilan bien-être complet', 'Scan de composition corporelle', 'Thé détox offert', 'Consultation avec un coach']
+                },
+                '10visites': {
+                    plan: 'Carte 10 visites', amount: 95, sub: 'soit 9,50€ / visite',
+                    features: ['10 visites complètes', 'Aloe-vera + Thé détox + Smoothie', 'Coaching & suivi personnalisé', 'Accès communauté du club']
+                },
+                '30visites': {
+                    plan: 'Carte 30 visites', amount: 249, sub: 'soit 8,30€ / visite — 13% d\'économie',
+                    features: ['30 visites complètes', 'Aloe-vera + Thé détox + Smoothie', 'Coaching & suivi personnalisé', 'Accès communauté du club']
+                }
+            };
+
+            // ---- Read ?formule= and populate ----
+            var params = new URLSearchParams(window.location.search);
+            var key = params.get('formule');
+            if (!PRODUCTS[key]) key = '10visites';
+            var p = PRODUCTS[key];
+
+            document.getElementById('sum-plan').textContent = p.plan;
+            document.getElementById('sum-sub').textContent = p.sub;
+            document.getElementById('sum-amount').textContent = p.amount;
+            document.getElementById('btn-amount').textContent = p.amount;
+            var ul = document.getElementById('sum-features');
+            p.features.forEach(function (f) {
+                var li = document.createElement('li');
+                li.textContent = f;
+                ul.appendChild(li);
+            });
+            document.title = 'Paiement ' + p.plan + ' - The Breakfast Club';
+
+            // ---- Capture Meta cookies (the key to matching the sale to an ad) ----
+            function getCookie(name) {
+                var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+                return m ? decodeURIComponent(m[1]) : null;
+            }
+
+            // ---- Fire InitiateCheckout (reaching the payment page = intent) ----
+            if (typeof fbq === 'function') {
+                fbq('track', 'InitiateCheckout', { value: p.amount, currency: 'EUR', content_ids: [key], content_type: 'product', content_name: p.plan });
+            }
+            if (typeof ttq !== 'undefined') {
+                ttq.track('InitiateCheckout', { value: p.amount, currency: 'EUR', content_id: key, content_type: 'product', content_name: p.plan });
+            }
+
+            // ---- Submit handler ----
+            var form = document.getElementById('pay-form');
+            var btn = document.getElementById('pay-submit');
+            var errBox = document.getElementById('pay-error');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                errBox.style.display = 'none';
+
+                var firstname = document.getElementById('firstname').value.trim();
+                var lastname = document.getElementById('lastname').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var phone = document.getElementById('phone').value.trim();
+
+                if (!firstname || !lastname || !email || email.indexOf('@') === -1) {
+                    errBox.textContent = 'Merci de remplir ton prénom, nom et un email valide.';
+                    errBox.style.display = 'block';
+                    return;
+                }
+
+                // The order payload we will send to the backend in the real build:
+                // - identifies the sale (product, amount)
+                // - carries the customer data Meta needs to match the sale to an ad
+                var orderPayload = {
+                    product: key,
+                    amount: p.amount,
+                    currency: 'EUR',
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    phone: phone,
+                    fbp: getCookie('_fbp'),
+                    fbc: getCookie('_fbc'),
+                    page_url: window.location.href
+                };
+                console.log('[Payment] order payload (will go to /api/create-checkout):', orderPayload);
+
+                btn.disabled = true;
+                btn.textContent = 'Traitement…';
+
+                // === DEMO ONLY ===
+                // Real build: POST orderPayload -> /api/create-checkout -> mount SumUp card
+                // widget -> on payment success -> redirect to merci.html.
+                // For this preview we simulate success and go straight to merci.html.
+                setTimeout(function () {
+                    var url = 'merci.html?product=' + encodeURIComponent(key) + '&amount=' + encodeURIComponent(p.amount);
+                    window.location.href = url;
+                }, 900);
+            });
+        })();
+    </script>
+</body>
+</html>
