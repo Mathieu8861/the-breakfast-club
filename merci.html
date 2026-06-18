@@ -213,19 +213,26 @@
                 nameEl.textContent = productLabels[product];
             }
 
-            // Fire Meta Pixel Purchase event
-            if (typeof fbq === 'function' && amount > 0) {
-                // Same event ID on the browser Pixel and the CAPI call so Meta
-                // deduplicates them (otherwise 1 purchase = 2 conversions)
+            // Customer data captured on the payment page — survives the SumUp
+            // round-trip via same-origin sessionStorage. This is what lets Meta
+            // ACCEPT and match the conversion (email + cookies).
+            var customer = {};
+            try { customer = JSON.parse(sessionStorage.getItem('tbc_purchase') || '{}'); } catch (e) {}
+
+            if (amount > 0) {
+                // Same event ID across browser Pixel + CAPI so Meta deduplicates
                 var eventId = 'web_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+                var label = productLabels[product] || product;
 
-                fbq('track', 'Purchase', {
-                    value: amount,
-                    currency: 'EUR',
-                    content_name: productLabels[product] || product
-                }, { eventID: eventId });
+                // --- Meta: browser Pixel ---
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Purchase', {
+                        value: amount, currency: 'EUR',
+                        content_name: label, content_ids: [product], content_type: 'product'
+                    }, { eventID: eventId });
+                }
 
-                // Also notify Conversion API backend (server-side tracking)
+                // --- Meta: server-side CAPI with email/phone + cookies (the fix) ---
                 try {
                     fetch('/api/meta-capi', {
                         method: 'POST',
@@ -237,12 +244,28 @@
                             user_agent: navigator.userAgent,
                             fbp: getCookie('_fbp'),
                             fbc: getCookie('_fbc'),
+                            email: customer.email || null,
+                            phone: customer.phone || null,
                             value: amount,
                             currency: 'EUR',
-                            content_name: productLabels[product] || product
+                            content_name: label
                         })
                     }).catch(function() {});
                 } catch (e) {}
+
+                // --- TikTok: Purchase with identity for matching ---
+                if (typeof ttq !== 'undefined') {
+                    if (customer.email || customer.phone) {
+                        ttq.identify({ email: customer.email || undefined, phone_number: customer.phone || undefined });
+                    }
+                    ttq.track('CompletePayment', {
+                        value: amount, currency: 'EUR',
+                        content_id: product, content_type: 'product', content_name: label
+                    });
+                }
+
+                // Clear so a refresh doesn't refire the conversion
+                try { sessionStorage.removeItem('tbc_purchase'); } catch (e) {}
             }
         })();
     </script>

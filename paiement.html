@@ -54,7 +54,6 @@
             font-family: var(--font-body);
         }
 
-        /* Decorative dots pattern (Regen DA — kept fully inside its zone) */
         .pay-deco {
             position: fixed;
             top: -60px;
@@ -76,7 +75,6 @@
             opacity: 0.25;
         }
 
-        /* Top bar */
         .pay-topbar {
             position: relative;
             z-index: 2;
@@ -99,15 +97,14 @@
         }
         .pay-secure svg { width: 18px; height: 18px; color: var(--green); }
 
-        /* Demo banner */
-        .pay-demo-banner {
+        .pay-test-banner {
             position: relative;
             z-index: 2;
             max-width: 1080px;
             margin: 0 auto 4px;
             padding: 10px 28px;
         }
-        .pay-demo-banner__inner {
+        .pay-test-banner__inner {
             background: rgba(255, 113, 0, 0.1);
             border: 1px dashed var(--orange);
             color: #a84a00;
@@ -119,7 +116,6 @@
             text-align: center;
         }
 
-        /* Layout */
         .pay-wrap {
             position: relative;
             z-index: 2;
@@ -136,7 +132,6 @@
             .pay-summary { order: 2; }
         }
 
-        /* Card shell */
         .pay-box {
             background: var(--white);
             border-radius: var(--radius-lg);
@@ -144,7 +139,6 @@
             padding: 32px;
         }
 
-        /* Order summary */
         .pay-summary__label {
             font-family: var(--font-heading);
             text-transform: uppercase;
@@ -198,7 +192,6 @@
         }
         .pay-total__amount span { font-size: 1.4rem; }
 
-        /* Form */
         .pay-form__title {
             font-family: var(--font-display);
             font-size: 1.6rem;
@@ -210,6 +203,26 @@
             font-size: 0.85rem;
             color: var(--gray-600);
             margin-bottom: 22px;
+        }
+        .pay-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+        .pay-step__num {
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--gradient-cta);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem;
         }
         .pay-field { margin-bottom: 16px; }
         .pay-field label {
@@ -238,44 +251,19 @@
         .pay-field input::placeholder { color: var(--gray-400); }
         .pay-field--row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-        /* Card placeholder (SumUp widget will mount here) */
-        .pay-card-zone {
-            border: 1.5px solid var(--gray-200);
+        /* SumUp widget mount zone */
+        #sumup-card { margin-top: 6px; }
+        .pay-card-hint {
+            border: 1.5px dashed var(--gray-200);
             border-radius: var(--radius-md);
-            padding: 16px;
+            padding: 18px;
+            text-align: center;
+            color: var(--gray-400);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
             background: #fbfbfb;
         }
-        .pay-card-zone__head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-        .pay-card-zone__head span {
-            font-family: var(--font-heading);
-            font-weight: 500;
-            font-size: 0.82rem;
-            color: var(--dark);
-        }
-        .pay-card-line {
-            background: #fff;
-            border: 1.5px dashed var(--gray-200);
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            color: var(--gray-400);
-            font-size: 0.92rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        .pay-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .pay-card-note {
-            margin-top: 10px;
-            font-size: 0.74rem;
-            color: var(--gray-400);
-            font-family: var(--font-heading);
-        }
 
-        /* Pay button */
         .pay-btn {
             width: 100%;
             border: none;
@@ -317,13 +305,13 @@
             font-size: 0.85rem;
             font-family: var(--font-heading);
         }
+        .is-hidden { display: none !important; }
     </style>
 </head>
 <body>
     <div class="pay-deco"></div>
     <div class="pay-deco pay-deco--2"></div>
 
-    <!-- Top bar -->
     <div class="pay-topbar">
         <img src="assets/logo-green.png" alt="The Breakfast Club" class="pay-topbar__logo">
         <div class="pay-secure">
@@ -335,14 +323,12 @@
         </div>
     </div>
 
-    <!-- Demo banner (preview only) -->
-    <div class="pay-demo-banner">
-        <div class="pay-demo-banner__inner">
-            🔧 Aperçu maquette — le module carte bancaire SumUp se branchera ici une fois le backend en ligne. Le bouton « Payer » simule pour l'instant le parcours jusqu'à la page de remerciement.
+    <div class="pay-test-banner">
+        <div class="pay-test-banner__inner">
+            🧪 Page de test (non liée au site) — le paiement est <strong>réel</strong> : à rembourser après le test depuis le dashboard SumUp.
         </div>
     </div>
 
-    <!-- Main -->
     <div class="pay-wrap">
         <!-- Order summary -->
         <div class="pay-box pay-summary">
@@ -358,67 +344,61 @@
 
         <!-- Payment form -->
         <div class="pay-box">
-            <h2 class="pay-form__title">Tes informations</h2>
-            <p class="pay-form__hint">On t'envoie ta confirmation et les détails par email.</p>
+            <!-- STEP 1: customer info -->
+            <div id="step-info">
+                <span class="pay-step"><span class="pay-step__num">1</span> Tes informations</span>
+                <h2 class="pay-form__title">Qui es-tu ?</h2>
+                <p class="pay-form__hint">On t'envoie ta confirmation et les détails par email.</p>
 
-            <form id="pay-form" novalidate>
-                <div class="pay-field pay-field--row">
-                    <div>
-                        <label for="firstname">Prénom</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="Marie" autocomplete="given-name" required>
-                    </div>
-                    <div>
-                        <label for="lastname">Nom</label>
-                        <input type="text" id="lastname" name="lastname" placeholder="Dupont" autocomplete="family-name" required>
-                    </div>
-                </div>
-
-                <div class="pay-field">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="marie.dupont@email.com" autocomplete="email" required>
-                </div>
-
-                <div class="pay-field">
-                    <label for="phone">Téléphone <span style="color:var(--gray-400);font-weight:400;">(optionnel)</span></label>
-                    <input type="tel" id="phone" name="phone" placeholder="+32 470 00 00 00" autocomplete="tel">
-                </div>
-
-                <div class="pay-field">
-                    <label>Carte bancaire</label>
-                    <div class="pay-card-zone">
-                        <div class="pay-card-zone__head">
-                            <span>Informations de carte</span>
-                            <span style="color:var(--gray-400);font-size:0.72rem;">🔒 SumUp</span>
+                <form id="info-form" novalidate>
+                    <div class="pay-field pay-field--row">
+                        <div>
+                            <label for="firstname">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Marie" autocomplete="given-name" required>
                         </div>
-                        <div id="sumup-card" >
-                            <div class="pay-card-line">•••• •••• •••• ••••</div>
-                            <div class="pay-card-row">
-                                <div class="pay-card-line" style="margin-bottom:0;">MM / AA</div>
-                                <div class="pay-card-line" style="margin-bottom:0;">CVC</div>
-                            </div>
+                        <div>
+                            <label for="lastname">Nom</label>
+                            <input type="text" id="lastname" name="lastname" placeholder="Dupont" autocomplete="family-name" required>
                         </div>
-                        <p class="pay-card-note">Module de carte sécurisé SumUp — tes données bancaires ne transitent jamais par notre serveur.</p>
                     </div>
+                    <div class="pay-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="marie.dupont@email.com" autocomplete="email" required>
+                    </div>
+                    <div class="pay-field">
+                        <label for="phone">Téléphone <span style="color:var(--gray-400);font-weight:400;">(optionnel)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+32 470 00 00 00" autocomplete="tel">
+                    </div>
+                    <button type="submit" class="pay-btn" id="info-submit">Continuer vers le paiement →</button>
+                    <div class="pay-error" id="info-error"></div>
+                </form>
+            </div>
+
+            <!-- STEP 2: card (SumUp widget mounts here) -->
+            <div id="step-card" class="is-hidden">
+                <span class="pay-step"><span class="pay-step__num">2</span> Paiement</span>
+                <h2 class="pay-form__title">Ta carte</h2>
+                <p class="pay-form__hint">Paiement sécurisé par SumUp — tes données bancaires ne transitent jamais par notre serveur.</p>
+                <div id="sumup-card">
+                    <div class="pay-card-hint" id="card-loading">Chargement du module de paiement sécurisé…</div>
                 </div>
+                <div class="pay-error" id="card-error"></div>
+            </div>
 
-                <button type="submit" class="pay-btn" id="pay-submit">Payer <span id="btn-amount">95</span>€</button>
-
-                <div class="pay-error" id="pay-error"></div>
-
-                <div class="pay-trust">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
-                        <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Paiement crypté SSL · Powered by SumUp
-                </div>
-            </form>
+            <div class="pay-trust">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Paiement crypté SSL · Powered by SumUp
+            </div>
         </div>
     </div>
 
+    <!-- SumUp Card Widget SDK -->
+    <script type="text/javascript" src="https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js"></script>
     <script>
         (function () {
-            // ---- Product catalogue ----
             var PRODUCTS = {
                 'decouverte': {
                     plan: 'Séance découverte', amount: 20, sub: 'acompte 100% déduit de ton abonnement',
@@ -434,7 +414,6 @@
                 }
             };
 
-            // ---- Read ?formule= and populate ----
             var params = new URLSearchParams(window.location.search);
             var key = params.get('formule');
             if (!PRODUCTS[key]) key = '10visites';
@@ -443,7 +422,6 @@
             document.getElementById('sum-plan').textContent = p.plan;
             document.getElementById('sum-sub').textContent = p.sub;
             document.getElementById('sum-amount').textContent = p.amount;
-            document.getElementById('btn-amount').textContent = p.amount;
             var ul = document.getElementById('sum-features');
             p.features.forEach(function (f) {
                 var li = document.createElement('li');
@@ -452,13 +430,12 @@
             });
             document.title = 'Paiement ' + p.plan + ' - The Breakfast Club';
 
-            // ---- Capture Meta cookies (the key to matching the sale to an ad) ----
             function getCookie(name) {
                 var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
                 return m ? decodeURIComponent(m[1]) : null;
             }
 
-            // ---- Fire InitiateCheckout (reaching the payment page = intent) ----
+            // InitiateCheckout (reaching the payment page = intent)
             if (typeof fbq === 'function') {
                 fbq('track', 'InitiateCheckout', { value: p.amount, currency: 'EUR', content_ids: [key], content_type: 'product', content_name: p.plan });
             }
@@ -466,14 +443,14 @@
                 ttq.track('InitiateCheckout', { value: p.amount, currency: 'EUR', content_id: key, content_type: 'product', content_name: p.plan });
             }
 
-            // ---- Submit handler ----
-            var form = document.getElementById('pay-form');
-            var btn = document.getElementById('pay-submit');
-            var errBox = document.getElementById('pay-error');
+            var infoForm = document.getElementById('info-form');
+            var infoBtn = document.getElementById('info-submit');
+            var infoErr = document.getElementById('info-error');
+            var cardErr = document.getElementById('card-error');
 
-            form.addEventListener('submit', function (e) {
+            infoForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                errBox.style.display = 'none';
+                infoErr.style.display = 'none';
 
                 var firstname = document.getElementById('firstname').value.trim();
                 var lastname = document.getElementById('lastname').value.trim();
@@ -481,39 +458,62 @@
                 var phone = document.getElementById('phone').value.trim();
 
                 if (!firstname || !lastname || !email || email.indexOf('@') === -1) {
-                    errBox.textContent = 'Merci de remplir ton prénom, nom et un email valide.';
-                    errBox.style.display = 'block';
+                    infoErr.textContent = 'Merci de remplir ton prénom, nom et un email valide.';
+                    infoErr.style.display = 'block';
                     return;
                 }
 
-                // The order payload we will send to the backend in the real build:
-                // - identifies the sale (product, amount)
-                // - carries the customer data Meta needs to match the sale to an ad
-                var orderPayload = {
-                    product: key,
-                    amount: p.amount,
-                    currency: 'EUR',
-                    firstname: firstname,
-                    lastname: lastname,
-                    email: email,
-                    phone: phone,
-                    fbp: getCookie('_fbp'),
-                    fbc: getCookie('_fbc'),
-                    page_url: window.location.href
-                };
-                console.log('[Payment] order payload (will go to /api/create-checkout):', orderPayload);
+                infoBtn.disabled = true;
+                infoBtn.textContent = 'Préparation du paiement…';
 
-                btn.disabled = true;
-                btn.textContent = 'Traitement…';
+                // Store the customer data so merci.html can send it to Meta/TikTok
+                // after payment (same-origin sessionStorage survives the SumUp round-trip).
+                try {
+                    sessionStorage.setItem('tbc_purchase', JSON.stringify({
+                        product: key, amount: p.amount, plan: p.plan,
+                        firstname: firstname, lastname: lastname, email: email, phone: phone,
+                        fbp: getCookie('_fbp'), fbc: getCookie('_fbc')
+                    }));
+                } catch (e) {}
 
-                // === DEMO ONLY ===
-                // Real build: POST orderPayload -> /api/create-checkout -> mount SumUp card
-                // widget -> on payment success -> redirect to merci.html.
-                // For this preview we simulate success and go straight to merci.html.
-                setTimeout(function () {
-                    var url = 'merci.html?product=' + encodeURIComponent(key) + '&amount=' + encodeURIComponent(p.amount);
-                    window.location.href = url;
-                }, 900);
+                // 1) Create the checkout server-side
+                fetch('/api/create-checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ product: key })
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (!data.checkout_id) { throw new Error(data.error || 'checkout creation failed'); }
+
+                    // 2) Reveal step 2 and mount the SumUp card widget
+                    document.getElementById('step-info').classList.add('is-hidden');
+                    document.getElementById('step-card').classList.remove('is-hidden');
+
+                    SumUpCard.mount({
+                        id: 'sumup-card',
+                        checkoutId: data.checkout_id,
+                        showFooter: false,
+                        onResponse: function (type, bodyResp) {
+                            console.log('[SumUp] onResponse:', type, bodyResp);
+                            var ok = type === 'success' ||
+                                (bodyResp && (bodyResp.status === 'PAID' || bodyResp.status === 'SUCCESSFUL'));
+                            if (ok) {
+                                window.location.href = 'merci.html?product=' + encodeURIComponent(key) + '&amount=' + encodeURIComponent(p.amount);
+                            } else if (type === 'error' || type === 'fail') {
+                                cardErr.textContent = 'Le paiement n\'a pas abouti. Vérifie tes informations de carte et réessaie.';
+                                cardErr.style.display = 'block';
+                            }
+                        }
+                    });
+                })
+                .catch(function (err) {
+                    infoBtn.disabled = false;
+                    infoBtn.textContent = 'Continuer vers le paiement →';
+                    infoErr.textContent = 'Une erreur est survenue, réessaie dans un instant.';
+                    infoErr.style.display = 'block';
+                    console.error('[create-checkout]', err);
+                });
             });
         })();
     </script>
