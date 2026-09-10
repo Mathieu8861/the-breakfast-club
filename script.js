@@ -238,79 +238,28 @@
         });
     }
 
-    // === DISCOVERY BOOKING FLOW (Cal.com modal -> our tracked payment page) ===
+    // === DISCOVERY BOOKING FLOW (Cal.com: booking + Stripe deposit -> merci.html) ===
     // Shared by: discovery card "Je réserve" + welcome popup CTA
     function initDiscoveryBookingFlow() {
-        // After the Cal.com slot is booked, we send the customer to our own
-        // payment page (instead of the raw SumUp link) so the 20€ is tracked.
-        var DISCOVERY_PAYMENT_URL = 'paiement.html?formule=decouverte';
-        var DISCOVERY_PAYMENT_ABS = window.location.origin + '/paiement.html?formule=decouverte';
-        var redirectArmed = false; // only redirect after a discovery click
-
-        // Pull the attendee's contact out of the Cal.com booking event so the
-        // payment page can pre-fill it (no double data entry).
-        function extractContact(data) {
-            var out = { email: null, name: null, phone: null };
-            try {
-                var d = (data && data.data) || (data && data.detail && data.detail.data) || data || {};
-                var b = d.booking || d;
-                var att = (b.attendees && b.attendees[0]) || null;
-                if (att) { out.email = att.email || out.email; out.name = att.name || out.name; out.phone = att.phoneNumber || out.phone; }
-                var resp = b.responses || (b.booking && b.booking.responses);
-                if (resp) {
-                    if (!out.email && resp.email) out.email = resp.email.value || resp.email;
-                    if (!out.name && resp.name) out.name = resp.name.value || resp.name;
-                    if (!out.phone && resp.phone) out.phone = resp.phone.value || resp.phone;
-                }
-            } catch (e) {}
-            if (!out.email) {
-                try { var m = JSON.stringify(data).match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/); if (m) out.email = m[0]; } catch (e) {}
-            }
-            return out;
-        }
-
-        // Listen to postMessage events from Cal.com iframe
-        window.addEventListener('message', function(event) {
-            if (!event.origin || !event.origin.includes('cal.com')) return;
-
-            console.log('[Cal postMessage]', event.data);
-
-            if (!redirectArmed) return;
-
-            var data = event.data || {};
-            var type = data.type || data.event || (data.detail && data.detail.type) || '';
-            var fullDataStr = JSON.stringify(data).toLowerCase();
-
-            var isBookingSuccess =
-                type === 'bookingSuccessful' ||
-                type === '__booking-successful' ||
-                type === 'CAL:bookingSuccessful' ||
-                fullDataStr.indexOf('bookingsuccessful') !== -1 ||
-                fullDataStr.indexOf('booking_successful') !== -1 ||
-                (data.namespace === 'rdv-evaluation-bien-etre-body-scan' &&
-                 fullDataStr.indexOf('uid') !== -1 && fullDataStr.indexOf('booking') !== -1);
-
-            if (isBookingSuccess) {
-                console.log('[Discovery flow] Booking success detected, redirecting to payment page');
-                // Carry the email/name/phone over to the payment page (best-effort)
-                try { sessionStorage.setItem('tbc_prefill', JSON.stringify(extractContact(data))); } catch (e) {}
-                setTimeout(function() {
-                    window.location.href = DISCOVERY_PAYMENT_URL;
-                }, 1500);
-            }
-        });
+        // Cal.com handles the whole discovery flow natively: pick a slot, then
+        // pay the 20€ deposit with Stripe (configured on the event: Réservation
+        // payante -> Stripe -> 20€ -> "à la réservation"). Once Cal.com confirms
+        // the paid booking, it redirects here so the Purchase pixel fires.
+        //
+        // We must NOT redirect the visitor ourselves mid-flow: that was the old
+        // bug (the booking got created, but the customer was pulled away to
+        // SumUp before paying, hence "ils réservent et ne paient pas").
+        var MERCI_REDIRECT = window.location.origin + '/merci.html?product=decouverte&amount=20';
 
         // Shared trigger function
         function triggerDiscoveryBooking(sourceLabel) {
             if (!(window.Cal && Cal.ns && Cal.ns['rdv-evaluation-bien-etre-body-scan'])) return false;
 
-            redirectArmed = true;
-
             Cal.ns['rdv-evaluation-bien-etre-body-scan']('modal', {
                 calLink: 'gregory-angiuli-cedagi/rdv-evaluation-bien-etre-body-scan',
                 config: {
                     layout: 'month_view',
-                    successRedirectUrl: DISCOVERY_PAYMENT_ABS
+                    successRedirectUrl: MERCI_REDIRECT
                 }
             });
 
